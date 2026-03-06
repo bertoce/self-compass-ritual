@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import "./globals.css";
+
+const geist = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Identity Compass",
+  description: "You were someone before the world told you who to be. This helps you remember — and live as — that person.",
+  openGraph: {
+    title: "Identity Compass",
+    description: "Find your way back to yourself.",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${geist.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+}
