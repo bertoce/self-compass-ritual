@@ -46,6 +46,14 @@ Create `.env.local` in the project root:
 ANTHROPIC_API_KEY=your_key_here
 ```
 
+## Repository
+
+[https://github.com/bertoce/self-compass-ritual](https://github.com/bertoce/self-compass-ritual)
+
+```bash
+git clone https://github.com/bertoce/self-compass-ritual.git
+```
+
 ## Project Docs
 
 Product context, PRD, and ritual design reference are in [`docs/`](./docs/).
