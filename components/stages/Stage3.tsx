@@ -7,19 +7,66 @@ interface Stage3Props {
   onRestart: () => void;
 }
 
+// Escapes special characters for .ics text fields
+function icsEscape(str: string): string {
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,')
+    .replace(/\n/g, '\\n');
+}
+
+// Formats a Date as YYYYMMDD for .ics all-day events
+function icsDate(d: Date): string {
+  return d.toISOString().slice(0, 10).replace(/-/g, '');
+}
+
 export default function Stage3({ data, onRestart }: Stage3Props) {
-  const handleSave = async () => {
-    const text = `UMBRAL\n\n── Your Nature ──\n${data.homeSelfSummary}\n\n── ${data.ritualTitle} ──\n${data.ritual}\n\n─────────────────\numbral.app`;
-    const blob = new Blob([text], { type: 'text/plain' });
+
+  const handleCalendar = () => {
+    const today = new Date();
+    const start = icsDate(today);
+
+    // UID — unique per practice so duplicate imports don't stack
+    const uid = `umbral-${Date.now()}@umbral.app`;
+
+    const description = icsEscape(
+      `${data.ritual}\n\nYour nature: ${data.homeSelfSummary}`
+    );
+
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Umbral//Umbral//EN',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      `UID:${uid}`,
+      `DTSTART;VALUE=DATE:${start}`,
+      `RRULE:FREQ=DAILY`,
+      `SUMMARY:${icsEscape(data.ritualTitle)}`,
+      `DESCRIPTION:${description}`,
+      'BEGIN:VALARM',
+      'ACTION:DISPLAY',
+      'TRIGGER:PT0S',
+      `DESCRIPTION:${icsEscape(data.ritualTitle)}`,
+      'END:VALARM',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url; a.download = 'umbral.txt'; a.click();
+    a.href = url;
+    a.download = `${data.ritualTitle.toLowerCase().replace(/\s+/g, '-')}.ics`;
+    a.click();
     URL.revokeObjectURL(url);
   };
 
   const handleShare = async () => {
     const text = `"${data.ritual}"\n\nUmbral`;
-    if (navigator.share) await navigator.share({ title: 'My Umbral', text });
+    if (navigator.share) await navigator.share({ title: 'My practice', text });
     else { await navigator.clipboard.writeText(text); }
   };
 
@@ -28,11 +75,9 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
 
       {/* ── Arrival ──────────────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
-        {/* Stage kicker — weight 500 */}
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 20 }}>
           Stage 3 · Your Practice
         </p>
-        {/* Arrival — weight 100, vast and quiet */}
         <p style={{ fontSize: 24, fontWeight: 100, lineHeight: 1.5, letterSpacing: '-0.01em', color: '#1A1713' }}>
           Here you are.
         </p>
@@ -40,12 +85,10 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
 
       {/* ── Your Nature ─────────────────────────── */}
       <div className="rise-2" style={{ marginBottom: 48 }}>
-        {/* Section label — weight 500 */}
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
           Your Nature
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4', borderBottom: '1px solid #D8D0C4', padding: '28px 0' }}>
-          {/* Reflection — weight 300, reading voice */}
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.9, color: '#1A1713', letterSpacing: '0.01em' }}>
             {data.homeSelfSummary}
           </p>
@@ -54,16 +97,13 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
 
       {/* ── Your Practice ───────────────────────── */}
       <div className="rise-3" style={{ marginBottom: 56 }}>
-        {/* Section label — weight 500, amber */}
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 12 }}>
           Your practice
         </p>
         <div style={{ borderTop: '1px solid rgba(184,132,74,0.3)', borderBottom: '1px solid rgba(184,132,74,0.3)', padding: '28px 0' }}>
-          {/* Practice title — weight 600, the one concrete wall */}
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#B8844A', marginBottom: 16 }}>
             {data.ritualTitle}
           </p>
-          {/* Practice body — weight 300, reading voice */}
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.95, color: '#1A1713', fontStyle: 'italic', letterSpacing: '0.01em' }}>
             "{data.ritual}"
           </p>
@@ -80,7 +120,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4' }}>
           {[
-            { label: 'Save to device', glyph: '↓', fn: handleSave },
+            { label: 'Remind me daily', glyph: '↗', fn: handleCalendar },
             { label: 'Share practice',  glyph: '↗', fn: handleShare },
           ].map(({ label, glyph, fn }) => (
             <button key={label} onClick={fn}
