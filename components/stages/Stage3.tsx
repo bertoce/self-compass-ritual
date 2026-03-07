@@ -69,7 +69,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
           </p>
         </div>
         <p style={{ fontSize: 11, fontWeight: 300, letterSpacing: '0.04em', color: '#6B6458', marginTop: 16 }}>
-          Start tomorrow. Just once. See what comes back.
+          Start at your pace. Just once. See what emerges.
         </p>
       </div>
 
