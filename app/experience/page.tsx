@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Stage1Data, Stage2Data, Stage3Data } from '@/lib/types';
 import Stage1 from '@/components/stages/Stage1';
@@ -20,9 +20,9 @@ const STAGE_BACKGROUNDS: Record<CurrentStage, string> = {
 };
 
 const STAGE_LABELS: Record<CurrentStage, string> = {
-  1: 'Home Self',
-  2: 'The Gap',
-  3: 'Ritual',
+  1: 'Nature',
+  2: 'Days',
+  3: 'Practice',
 };
 
 export default function ExperiencePage() {
@@ -33,17 +33,20 @@ export default function ExperiencePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Scroll to top on every stage transition — useEffect ensures DOM has updated first
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStage, isLoading]);
+
   const handleStage1Complete = (data: Stage1Data) => {
     setStage1Data(data);
     setCurrentStage(2);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleStage2Complete = async (data: Stage2Data) => {
     setStage2Data(data);
     setIsLoading(true);
     setError(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     try {
       const reflectRes = await fetch('/api/reflect', {
@@ -78,7 +81,6 @@ export default function ExperiencePage() {
     setStage2Data(null);
     setStage3Data(null);
     setError(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const bgStage = isLoading ? 3 : currentStage;

@@ -13,7 +13,6 @@ const MAX_VALUES = 3;
 const MAX_FELT = 3;
 const MAX_RELATIONAL = 2;
 
-// Section label — weight 500, structural bone
 const SectionLabel = ({ text, count, max }: { text: string; count: number; max: number }) => (
   <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
     <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458' }}>
@@ -26,8 +25,8 @@ const SectionLabel = ({ text, count, max }: { text: string; count: number; max: 
 );
 
 export default function Stage1({ onComplete }: Stage1Props) {
-  const [selectedValues, setSelectedValues]       = useState<string[]>([]);
-  const [selectedFelt, setSelectedFelt]           = useState<string[]>([]);
+  const [selectedValues, setSelectedValues]         = useState<string[]>([]);
+  const [selectedFelt, setSelectedFelt]             = useState<string[]>([]);
   const [selectedRelational, setSelectedRelational] = useState<string[]>([]);
   const [word, setWord] = useState('');
 
@@ -41,19 +40,19 @@ export default function Stage1({ onComplete }: Stage1Props) {
   return (
     <div className="stage-enter">
 
-      {/* ── Stage question ────────────────────── */}
+      {/* ── Opening ───────────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
-        {/* Stage kicker — weight 500, structural */}
+        {/* Stage kicker — weight 500 */}
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 20 }}>
-          Stage 1 · Home Self
+          Stage 1 · Your Nature
         </p>
-        {/* Question — weight 200, asking voice */}
+        {/* Question — weight 200 */}
         <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713', marginBottom: 16 }}>
-          Bring to mind a specific moment where you felt most like yourself.
+          Call to mind a moment you felt completely yourself.
         </p>
-        {/* Sub-question — weight 300, reading voice */}
+        {/* Guidance — weight 300 */}
         <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', fontStyle: 'italic' }}>
-          Most calm. Most free. Most seen. Hold that moment. Answer from there.
+          At ease. Unguarded. Alive. Stay in that moment as you choose.
         </p>
       </div>
 
@@ -101,11 +100,9 @@ export default function Stage1({ onComplete }: Stage1Props) {
 
       {/* ── Optional word ───────────────────────── */}
       <div className="rise-5" style={{ marginBottom: 56 }}>
-        {/* Label — weight 500 */}
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 14 }}>
-          One word for that version of you &nbsp;<span style={{ color: '#C4B9AB', fontWeight: 400 }}>(optional)</span>
+          A word for that version of you &nbsp;<span style={{ color: '#C4B9AB', fontWeight: 400 }}>(optional)</span>
         </p>
-        {/* Input — weight 200, open invitation */}
         <input
           type="text"
           value={word}
@@ -127,7 +124,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
         />
       </div>
 
-      {/* ── CTA — weight 500, structural ────────── */}
+      {/* ── CTA ─────────────────────────────────── */}
       <button
         onClick={() => canContinue && onComplete({ values: selectedValues, feltSenses: selectedFelt, relational: selectedRelational, word: word.trim() })}
         disabled={!canContinue}
@@ -145,7 +142,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
           transition: 'all 0.5s ease',
         }}
       >
-        {canContinue ? 'See the gap' : 'Select at least one from each section'}
+        {canContinue ? 'See where you are now' : 'Choose at least one from each section'}
       </button>
 
     </div>

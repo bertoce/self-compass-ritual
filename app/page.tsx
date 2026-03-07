@@ -7,7 +7,6 @@ const Hairline = () => (
 export default function Home() {
   return (
     <div style={{
-      // Turrell Ganzfeld — mauve-rose at top, through warm limestone, to amber gold at base
       background: 'linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%)',
       minHeight: '100vh',
     }}>
@@ -29,12 +28,10 @@ export default function Home() {
               <circle cx="16" cy="16" r="1.5" fill="#B8844A" />
               <polygon points="16,5 14.5,12 16,10.5 17.5,12" fill="#1A1713" />
             </svg>
-            {/* Wordmark — weight 500, structural anchor */}
             <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#1A1713' }}>
               Umbral
             </span>
           </div>
-          {/* Nav — weight 500, structural */}
           <Link href="/experience" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', borderBottom: '1px solid #D8D0C4', paddingBottom: 2 }}>
             Begin
           </Link>
@@ -44,29 +41,25 @@ export default function Home() {
       <main style={{ padding: '0 32px 0 48px' }}>
         <div style={{ maxWidth: 380, margin: '0 auto' }}>
 
-          {/* ── HERO ───────────────────────────────── */}
+          {/* ── HERO ─────────────────────────────── */}
           <section style={{ paddingTop: 80, paddingBottom: 80 }}>
 
-            {/* Kicker — weight 500, structural label */}
             <p className="rise-1" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 28 }}>
               For those who cross worlds
             </p>
 
-            {/* Headline — weight 100, vast arrival */}
             <h1 className="rise-2" style={{ fontSize: 30, fontWeight: 100, lineHeight: 1.4, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 24 }}>
               Every time you cross back,<br />
               something lifts.
             </h1>
 
-            {/* Sublines — weight 300, reading voice */}
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 20 }}>
-              That isn't the destination. That is you, returning to yourself.
+              That is you, returning to yourself.
             </p>
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 52 }}>
-              Most people don't realize that feeling is accessible without the flight.
+              You already know who you are. This helps you live closer to that knowing.
             </p>
 
-            {/* CTA — weight 500, structural bone */}
             <div className="rise-4">
               <Link
                 href="/experience"
@@ -81,103 +74,97 @@ export default function Home() {
             </div>
           </section>
 
-          <Hairline />
+          {/* ── LEARN MORE ───────────────────────── */}
+          <details style={{ marginBottom: 80 }}>
+            <summary style={{
+              cursor: 'pointer',
+              listStyle: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '20px 0',
+              borderTop: '1px solid #D8D0C4',
+              borderBottom: '1px solid #D8D0C4',
+              fontSize: 9,
+              fontWeight: 500,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#6B6458',
+              userSelect: 'none',
+            }}>
+              <span>Learn more</span>
+              <span style={{ fontSize: 12, color: '#C4B9AB', fontWeight: 300 }}>↓</span>
+            </summary>
 
-          {/* ── THE PROBLEM ──────────────────────── */}
-          <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            {/* Section label — weight 500 */}
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
-              The problem
-            </p>
-            {/* Problem headline — weight 200, the asking voice */}
-            <p style={{ fontSize: 16, fontWeight: 200, lineHeight: 1.75, color: '#1A1713', marginBottom: 20 }}>
-              Most people are living as two versions of themselves simultaneously.
-            </p>
-            <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', marginBottom: 16 }}>
-              One who knows what matters. Rooted in memory, in relationship, in the feeling of being seen. One who has quietly become whoever the environment expects.
-            </p>
-            <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', fontStyle: 'italic' }}>
-              The gap between them is real. And almost never named.
-            </p>
-          </section>
+            {/* ── WHAT THIS IS ─────────────────── */}
+            <section style={{ paddingTop: 56, paddingBottom: 56 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+                What this is
+              </p>
+              <p style={{ fontSize: 16, fontWeight: 200, lineHeight: 1.75, color: '#1A1713', marginBottom: 20 }}>
+                You already carry who you are. Life just makes it easy to drift.
+              </p>
+              <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', marginBottom: 16 }}>
+                There is a version of you that doesn't need to be built or fixed. It already exists. It shows up in certain moments, certain places, certain people. When you are there, you know it immediately.
+              </p>
+              <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', fontStyle: 'italic' }}>
+                Umbral is a conversation that names who that person is, and gives you one small way to return to them each day.
+              </p>
+            </section>
 
-          <Hairline />
+            <Hairline />
 
-          {/* ── WHAT IT IS ───────────────────────── */}
-          <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            {/* Section label — weight 500 */}
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
-              What this is
-            </p>
-
-            {/* Not / but */}
-            <div style={{ borderTop: '1px solid #D8D0C4', marginBottom: 32 }}>
-              {[
-                ['Not a meditation app', 'Not a personality quiz', 'Not a habit tracker'],
-                ['A single conversation', 'that finds who you already are'],
-              ].map((group, gi) => (
-                <div key={gi}>
-                  {group.map(item => (
-                    <div key={item} style={{ borderBottom: '1px solid #D8D0C4', padding: '13px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: 12, fontWeight: gi === 0 ? 300 : 400, color: gi === 0 ? '#9B9085' : '#1A1713', letterSpacing: '0.03em', fontStyle: gi === 0 ? 'normal' : 'italic' }}>
-                        {item}
-                      </span>
-                      {gi === 0 && <span style={{ fontSize: 10, color: '#D8D0C4' }}>—</span>}
-                    </div>
-                  ))}
+            {/* ── NOT / BUT ────────────────────── */}
+            <section style={{ paddingTop: 56, paddingBottom: 56 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+                What it is not
+              </p>
+              <div style={{ borderTop: '1px solid #D8D0C4', marginBottom: 32 }}>
+                {[
+                  'Not a meditation app',
+                  'Not a personality quiz',
+                  'Not a habit tracker',
+                ].map(item => (
+                  <div key={item} style={{ borderBottom: '1px solid #D8D0C4', padding: '13px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: 12, fontWeight: 300, color: '#9B9085', letterSpacing: '0.03em' }}>
+                      {item}
+                    </span>
+                    <span style={{ fontSize: 10, color: '#D8D0C4' }}>—</span>
+                  </div>
+                ))}
+                <div style={{ borderBottom: '1px solid #D8D0C4', padding: '13px 0' }}>
+                  <span style={{ fontSize: 12, fontWeight: 400, color: '#1A1713', letterSpacing: '0.03em', fontStyle: 'italic' }}>
+                    A single conversation that finds who you already are.
+                  </span>
                 </div>
-              ))}
-            </div>
+              </div>
+              <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458' }}>
+                The closest things to this are therapy, deep friendship, going home. None of them scale. This is the portable, daily version.
+              </p>
+            </section>
 
-            <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458' }}>
-              The closest things to this are therapy, deep friendship, going home. None of them scale. This is the portable, daily version.
-            </p>
-          </section>
+            <Hairline />
 
-          <Hairline />
+            {/* ── YOU LEAVE WITH ───────────────── */}
+            <section style={{ paddingTop: 56, paddingBottom: 56 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+                You leave with
+              </p>
+              <div style={{ borderTop: '1px solid #D8D0C4' }}>
+                {[
+                  ['I',   'A reflection of who you are when most yourself'],
+                  ['II',  'An honest look at where your days actually live'],
+                  ['III', 'One practice, built from your nature, doable tomorrow'],
+                ].map(([num, text]) => (
+                  <div key={num} style={{ borderBottom: '1px solid #D8D0C4', padding: '20px 0', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+                    <span style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.1em', minWidth: 16, paddingTop: 2 }}>{num}</span>
+                    <span style={{ fontSize: 13, fontWeight: 300, color: '#1A1713', lineHeight: 1.7 }}>{text}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-          {/* ── WHAT YOU LEAVE WITH ──────────────── */}
-          <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            {/* Section label — weight 500 */}
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
-              You leave with
-            </p>
-            <div style={{ borderTop: '1px solid #D8D0C4' }}>
-              {[
-                ['I', 'A name for who you are at your core'],
-                ['II', 'An honest view of the gap you have been living in'],
-                ['III', 'One ritual, specific to you, doable tomorrow'],
-              ].map(([num, text]) => (
-                <div key={num} style={{ borderBottom: '1px solid #D8D0C4', padding: '20px 0', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.1em', minWidth: 16, paddingTop: 2 }}>{num}</span>
-                  <span style={{ fontSize: 13, fontWeight: 300, color: '#1A1713', lineHeight: 1.7 }}>{text}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <Hairline />
-
-          {/* ── CLOSING ──────────────────────────── */}
-          <section style={{ paddingTop: 72, paddingBottom: 80 }}>
-            {/* Closing statement — weight 200, inviting */}
-            <p style={{ fontSize: 20, fontWeight: 200, lineHeight: 1.6, color: '#1A1713', marginBottom: 48 }}>
-              The gap is real.<br />
-              And closeable.<br />
-              Without leaving.
-            </p>
-            {/* CTA — weight 500 */}
-            <Link
-              href="/experience"
-              className="block text-center"
-              style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase' }}
-            >
-              Begin the experience
-            </Link>
-            <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
-              No account &nbsp;·&nbsp; No signup &nbsp;·&nbsp; 10–15 minutes
-            </p>
-          </section>
+          </details>
 
         </div>
       </main>
