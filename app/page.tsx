@@ -68,7 +68,7 @@ export default function Home() {
                 Begin the experience
               </Link>
               <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
-                10–15 minutes &nbsp;·&nbsp; No account &nbsp;·&nbsp; No writing
+                Just you and a few honest questions.
               </p>
             </div>
           </section>
