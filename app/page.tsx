@@ -181,7 +181,7 @@ export default function Home() {
 
       <footer style={{ borderTop: '1px solid #D8D0C4', padding: '20px 0', textAlign: 'center' }}>
         <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB' }}>
-          Schwartz Values · Self-Determination Theory
+          Rooted in the science of human values and what makes people feel alive.
         </p>
       </footer>
 
