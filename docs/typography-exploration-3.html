@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umbral — Helvetica Neue vs DM Sans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:       #F8F6F1;
+    --stone:       #1A1713;
+    --amber:       #B8844A;
+    --hairline:    #D8D0C4;
+    --stone-mid:   #6B6458;
+    --stone-light: #C4B9AB;
+    --hv: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --dm: 'DM Sans', sans-serif;
+  }
+
+  body {
+    background: #E9E5DF;
+    padding: 56px 40px 100px;
+    font-family: var(--dm);
+  }
+
+  /* ── Page header */
+  .page-header {
+    max-width: 1060px;
+    margin: 0 auto 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid #CEC9C2;
+    padding-bottom: 20px;
+  }
+  .page-title {
+    font-family: var(--dm);
+    font-size: 22px;
+    font-weight: 200;
+    color: var(--stone);
+  }
+  .page-eyebrow {
+    font-family: var(--dm);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 8px;
+  }
+  .page-note {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone-mid);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ── Column headers */
+  .col-headers {
+    max-width: 1060px;
+    margin: 0 auto 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .col-tag {
+    padding: 16px 20px;
+  }
+  .col-tag-label {
+    font-family: var(--dm);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .col-tag-name {
+    font-size: 18px;
+    font-weight: 200;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+  .col-tag-name-hv { font-family: var(--hv); }
+  .col-tag-name-dm { font-family: var(--dm); }
+  .col-tag-desc {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone-mid);
+    line-height: 1.6;
+  }
+
+  /* ── Screen row */
+  .section-label {
+    max-width: 1060px;
+    margin: 0 auto 14px;
+    font-family: var(--dm);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    padding-top: 32px;
+    border-top: 1px solid rgba(184,132,74,0.15);
+  }
+  .screen-row {
+    max-width: 1060px;
+    margin: 0 auto 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  /* ── Phone */
+  .phone {
+    border-radius: 44px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 0 1px rgba(255,255,255,0.55),
+      0 12px 48px rgba(26,23,19,0.13),
+      0 2px 8px rgba(26,23,19,0.07);
+  }
+  .notch {
+    display: flex;
+    justify-content: center;
+    padding: 14px 0 6px;
+  }
+  .notch-bar {
+    width: 68px;
+    height: 5px;
+    background: rgba(26,23,19,0.1);
+    border-radius: 3px;
+  }
+  .pi { padding: 6px 28px 36px; }
+
+  /* ── Shared UI atoms */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .wordmark {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .begin-link {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+  }
+  .progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pdot { width: 3px; height: 3px; border-radius: 50%; }
+  .pdot-on  { background: var(--stone); }
+  .pdot-done { background: var(--amber); }
+  .pdot-off { background: var(--hairline); }
+  .ptick { width: 7px; height: 1px; background: var(--hairline); }
+  .ptick-done { width: 7px; height: 1px; background: var(--amber); }
+  .plabel {
+    font-size: 6px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    text-align: center;
+  }
+  .kicker-amber {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 13px;
+  }
+  .section-lbl {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    margin-bottom: 7px;
+  }
+  .section-lbl-amber { color: var(--amber); }
+  .section-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 7px;
+  }
+  .count { font-size: 8px; color: var(--amber); }
+  .hl { height: 1px; background: var(--hairline); }
+  .al { height: 1px; background: rgba(184,132,74,0.3); }
+  .card {
+    border-bottom: 1px solid var(--hairline);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-sel {
+    background: rgba(184,132,74,0.05);
+    margin: 0 -28px;
+    padding: 10px 28px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dot-sel { width: 4px; height: 4px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+  .cta {
+    display: block;
+    width: 100%;
+    padding: 13px 0;
+    background: var(--stone);
+    color: var(--linen);
+    text-align: center;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .meta {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-top: 9px;
+  }
+  .action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .glyph { font-size: 9px; color: var(--stone-light); }
+
+  /* stage backgrounds */
+  .bg-land  { background: linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%); }
+  .bg-s1    { background: radial-gradient(ellipse at 60% 0%, #E8D8EB 0%, #F5F0F4 40%, #F7F4F0 100%); }
+  .bg-s3    { background: radial-gradient(ellipse at 50% 55%, #E4C87C 0%, #F0E0B0 35%, #F5EDD8 100%); }
+
+  /* ══ HELVETICA NEUE type scale */
+  .hv .wordmark,
+  .hv .begin-link,
+  .hv .kicker-amber,
+  .hv .section-lbl,
+  .hv .count,
+  .hv .meta,
+  .hv .plabel,
+  .hv .glyph { font-family: var(--hv); }
+
+  .hv-h1 {
+    font-family: var(--hv);
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 1.38;
+    letter-spacing: -0.02em;
+    color: var(--stone);
+    margin-bottom: 13px;
+  }
+  .hv-sub {
+    font-family: var(--hv);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    margin-bottom: 8px;
+  }
+  .hv-question {
+    font-family: var(--hv);
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 1.65;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .hv-subq {
+    font-family: var(--hv);
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--stone-mid);
+    font-style: italic;
+  }
+  .hv-card-lbl {
+    font-family: var(--hv);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone);
+  }
+  .hv-card-lbl-sel {
+    font-family: var(--hv);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .hv-card-desc {
+    font-family: var(--hv);
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .hv-home {
+    font-family: var(--hv);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+  }
+  .hv-ritual-title {
+    font-family: var(--hv);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .hv-ritual-body {
+    font-family: var(--hv);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .hv-closing {
+    font-family: var(--hv);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .hv-action {
+    font-family: var(--hv);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--stone-mid);
+  }
+  .hv-found {
+    font-family: var(--hv);
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+
+  /* ══ DM SANS type scale */
+  .dm .wordmark,
+  .dm .begin-link,
+  .dm .kicker-amber,
+  .dm .section-lbl,
+  .dm .count,
+  .dm .meta,
+  .dm .plabel,
+  .dm .glyph { font-family: var(--dm); }
+
+  .dm-h1 {
+    font-family: var(--dm);
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--stone);
+    margin-bottom: 13px;
+  }
+  .dm-sub {
+    font-family: var(--dm);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    margin-bottom: 8px;
+  }
+  .dm-question {
+    font-family: var(--dm);
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 1.7;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .dm-subq {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--stone-mid);
+    font-style: italic;
+  }
+  .dm-card-lbl {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone);
+  }
+  .dm-card-lbl-sel {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .dm-card-desc {
+    font-family: var(--dm);
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .dm-home {
+    font-family: var(--dm);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+  }
+  .dm-ritual-title {
+    font-family: var(--dm);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .dm-ritual-body {
+    font-family: var(--dm);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .dm-closing {
+    font-family: var(--dm);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .dm-action {
+    font-family: var(--dm);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--stone-mid);
+  }
+  .dm-found {
+    font-family: var(--dm);
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Page header -->
+<div class="page-header">
+  <div>
+    <p class="page-eyebrow">Umbral · Typography</p>
+    <h1 class="page-title">Helvetica Neue vs DM Sans</h1>
+  </div>
+  <p class="page-note">Same weights · Same copy · Same layout<br>Landing · Stage 1 · Stage 3</p>
+</div>
+
+<!-- ── Column labels -->
+<div class="col-headers">
+  <div class="col-tag">
+    <p class="col-tag-label">Option 1</p>
+    <p class="col-tag-name col-tag-name-hv">Helvetica Neue</p>
+    <p class="col-tag-desc">Neutral, precise, Swiss. Cold at low weights — elegant at high contrast. The classic modernist choice.</p>
+  </div>
+  <div class="col-tag">
+    <p class="col-tag-label">Option 2</p>
+    <p class="col-tag-name col-tag-name-dm">DM Sans</p>
+    <p class="col-tag-desc">Geometric but warm. Slightly more open apertures. Designed for screens. Friendlier at light weights.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ROW 1 — LANDING
+═══════════════════════════════════════ -->
+<p class="section-label">Screen 1 · Landing</p>
+<div class="screen-row">
+
+  <!-- Helvetica · Landing -->
+  <div class="hv">
+    <div class="phone bg-land">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <span class="begin-link">Begin</span>
+        </div>
+        <p class="kicker-amber">For those who cross worlds</p>
+        <h2 class="hv-h1">Every time you<br>cross back,<br>something lifts.</h2>
+        <p class="hv-sub">That is you, returning to yourself.</p>
+        <p class="hv-sub" style="margin-bottom:20px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <div class="hl" style="margin-bottom:16px;"></div>
+        <p class="section-lbl" style="margin-bottom:10px;">The problem</p>
+        <p class="hv-sub" style="margin-bottom:0;color:#1A1713;">Most people are living as two versions of themselves at once.</p>
+        <div class="cta" style="font-family:var(--hv);">Begin the experience</div>
+        <p class="meta">10–15 min · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DM Sans · Landing -->
+  <div class="dm">
+    <div class="phone bg-land">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <span class="begin-link">Begin</span>
+        </div>
+        <p class="kicker-amber">For those who cross worlds</p>
+        <h2 class="dm-h1">Every time you<br>cross back,<br>something lifts.</h2>
+        <p class="dm-sub">That is you, returning to yourself.</p>
+        <p class="dm-sub" style="margin-bottom:20px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <div class="hl" style="margin-bottom:16px;"></div>
+        <p class="section-lbl" style="margin-bottom:10px;">The problem</p>
+        <p class="dm-sub" style="margin-bottom:0;color:#1A1713;">Most people are living as two versions of themselves at once.</p>
+        <div class="cta" style="font-family:var(--dm);">Begin the experience</div>
+        <p class="meta">10–15 min · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ROW 2 — STAGE 1
+═══════════════════════════════════════ -->
+<p class="section-label">Screen 2 · Stage 1 · Home Self</p>
+<div class="screen-row">
+
+  <!-- Helvetica · Stage 1 -->
+  <div class="hv">
+    <div class="phone bg-s1">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);font-family:var(--hv);">Home</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);font-family:var(--hv);">Gap</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);font-family:var(--hv);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="kicker-amber">Stage 1 · Home Self</p>
+        <p class="hv-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="hv-subq" style="margin-bottom:20px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="section-row">
+          <span class="section-lbl">What mattered most</span>
+          <span class="count">2 / 3</span>
+        </div>
+        <div class="hl">
+          <div class="card-sel">
+            <div><div class="hv-card-lbl-sel">Belonging</div><div class="hv-card-desc">Family, community, a place that knows you</div></div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div><div class="hv-card-lbl">Freedom</div><div class="hv-card-desc">Choosing your own path, on your own terms</div></div>
+          </div>
+          <div class="card-sel">
+            <div><div class="hv-card-lbl-sel">Deep Connection</div><div class="hv-card-desc">Being truly known, not just liked</div></div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div><div class="hv-card-lbl">Stillness</div><div class="hv-card-desc">Quiet. Slowness. A life without urgency</div></div>
+          </div>
+          <div class="card">
+            <div><div class="hv-card-lbl">Purpose</div><div class="hv-card-desc">Doing something that matters beyond yourself</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DM Sans · Stage 1 -->
+  <div class="dm">
+    <div class="phone bg-s1">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);font-family:var(--dm);">Home</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);font-family:var(--dm);">Gap</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);font-family:var(--dm);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="kicker-amber">Stage 1 · Home Self</p>
+        <p class="dm-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="dm-subq" style="margin-bottom:20px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="section-row">
+          <span class="section-lbl">What mattered most</span>
+          <span class="count">2 / 3</span>
+        </div>
+        <div class="hl">
+          <div class="card-sel">
+            <div><div class="dm-card-lbl-sel">Belonging</div><div class="dm-card-desc">Family, community, a place that knows you</div></div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div><div class="dm-card-lbl">Freedom</div><div class="dm-card-desc">Choosing your own path, on your own terms</div></div>
+          </div>
+          <div class="card-sel">
+            <div><div class="dm-card-lbl-sel">Deep Connection</div><div class="dm-card-desc">Being truly known, not just liked</div></div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div><div class="dm-card-lbl">Stillness</div><div class="dm-card-desc">Quiet. Slowness. A life without urgency</div></div>
+          </div>
+          <div class="card">
+            <div><div class="dm-card-lbl">Purpose</div><div class="dm-card-desc">Doing something that matters beyond yourself</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ROW 3 — STAGE 3
+═══════════════════════════════════════ -->
+<p class="section-label">Screen 3 · Stage 3 · Ritual</p>
+<div class="screen-row">
+
+  <!-- Helvetica · Stage 3 -->
+  <div class="hv">
+    <div class="phone bg-s3">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);font-family:var(--hv);">Home</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);font-family:var(--hv);">Gap</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);font-family:var(--hv);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="kicker-amber">Stage 3 · Your Ritual</p>
+        <p class="hv-found">Here is what you found.</p>
+        <p class="section-lbl" style="margin-bottom:7px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:13px 0;margin-bottom:16px;">
+          <p class="hv-home">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+        <p class="section-lbl section-lbl-amber" style="margin-bottom:7px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:13px 0;margin-bottom:12px;">
+          <p class="hv-ritual-title">The Belonging Check-In</p>
+          <p class="hv-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+        <p style="font-family:var(--hv);font-size:10px;font-weight:300;color:var(--stone-mid);margin-bottom:14px;">Start tomorrow. Just once. See what returns.</p>
+        <p class="section-lbl" style="margin-bottom:7px;">Keep this</p>
+        <div class="hl">
+          <div class="action-row"><span class="hv-action">Add to calendar</span><span class="glyph">↗</span></div>
+          <div class="action-row"><span class="hv-action">Share ritual</span><span class="glyph">↗</span></div>
+        </div>
+        <p class="hv-closing">The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DM Sans · Stage 3 -->
+  <div class="dm">
+    <div class="phone bg-s3">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);font-family:var(--dm);">Home</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);font-family:var(--dm);">Gap</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);font-family:var(--dm);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="kicker-amber">Stage 3 · Your Ritual</p>
+        <p class="dm-found">Here is what you found.</p>
+        <p class="section-lbl" style="margin-bottom:7px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:13px 0;margin-bottom:16px;">
+          <p class="dm-home">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+        <p class="section-lbl section-lbl-amber" style="margin-bottom:7px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:13px 0;margin-bottom:12px;">
+          <p class="dm-ritual-title">The Belonging Check-In</p>
+          <p class="dm-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+        <p style="font-family:var(--dm);font-size:10px;font-weight:300;color:var(--stone-mid);margin-bottom:14px;">Start tomorrow. Just once. See what returns.</p>
+        <p class="section-lbl" style="margin-bottom:7px;">Keep this</p>
+        <div class="hl">
+          <div class="action-row"><span class="dm-action">Add to calendar</span><span class="glyph">↗</span></div>
+          <div class="action-row"><span class="dm-action">Share ritual</span><span class="glyph">↗</span></div>
+        </div>
+        <p class="dm-closing">The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

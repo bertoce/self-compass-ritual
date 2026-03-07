@@ -44,14 +44,17 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
   return (
     <div className="stage-enter">
 
-      {/* ── Hierarchy level 1 — stage question ─── */}
+      {/* ── Stage question ────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#6B8C70', marginBottom: 20 }}>
+        {/* Stage kicker — weight 500, structural */}
+        <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#6B8C70', marginBottom: 20 }}>
           Stage 2 · The Gap
         </p>
+        {/* Question — weight 200, asking voice */}
         <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713', marginBottom: 16 }}>
           Now look at today.
         </p>
+        {/* Body — weight 300, reading voice */}
         <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#6B6458' }}>
           For each part of your Home Self, how present is it in your life right now?
         </p>
@@ -59,7 +62,8 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
 
       {/* ── Sliders ─────────────────────────────── */}
       <div className="rise-2" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458', marginBottom: 12 }}>
+        {/* Section label — weight 500 */}
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
           Your dimensions
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4' }}>
@@ -69,12 +73,13 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
             return (
               <div key={card.id} className="rise-2" style={{ animationDelay: `${i * 60}ms`, borderBottom: '1px solid #D8D0C4', padding: '24px 0' }}>
 
-                {/* Dimension name + presence label */}
+                {/* Dimension name — weight 500, structural identifier */}
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 20 }}>
-                  <span style={{ fontSize: 12, fontWeight: 300, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#1A1713' }}>
+                  <span style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#1A1713' }}>
                     {card.label}
                   </span>
-                  <span style={{ fontSize: 9, fontWeight: 300, letterSpacing: '0.12em', textTransform: 'uppercase', color }}>
+                  {/* Presence label — weight 500, structural signal */}
+                  <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color }}>
                     {text}
                   </span>
                 </div>
@@ -86,10 +91,10 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
                   style={{ background: `linear-gradient(to right, #1A1713 ${score}%, #D8D0C4 ${score}%)` }}
                 />
 
-                {/* Range labels */}
+                {/* Range labels — weight 400, running UI */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
-                  <span style={{ fontSize: 9, color: '#C4B9AB', letterSpacing: '0.08em' }}>Not at all</span>
-                  <span style={{ fontSize: 9, color: '#C4B9AB', letterSpacing: '0.08em' }}>Fully present</span>
+                  <span style={{ fontSize: 9, fontWeight: 400, color: '#C4B9AB', letterSpacing: '0.08em' }}>Not at all</span>
+                  <span style={{ fontSize: 9, fontWeight: 400, color: '#C4B9AB', letterSpacing: '0.08em' }}>Fully present</span>
                 </div>
               </div>
             );
@@ -101,11 +106,12 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
       {showChart && (
         <div className="rise-3" style={{ marginBottom: 56 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458' }}>
+            {/* Section label — weight 500 */}
+            <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458' }}>
               Your compass
             </p>
             {avgPresence < 65 && (
-              <p style={{ fontSize: 9, color: '#B8844A', letterSpacing: '0.06em' }}>
+              <p style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.06em' }}>
                 {100 - avgPresence}% of your Home Self absent
               </p>
             )}
@@ -119,10 +125,10 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
         </div>
       )}
 
-      {/* ── CTA ─────────────────────────────────── */}
+      {/* ── CTA — weight 500, structural ────────── */}
       <button
         onClick={() => onComplete({ ratings: chartDimensions })}
-        style={{ width: '100%', padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 300, letterSpacing: '0.22em', textTransform: 'uppercase', cursor: 'pointer', border: 'none', transition: 'opacity 0.4s ease' }}
+        style={{ width: '100%', padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', cursor: 'pointer', border: 'none', transition: 'opacity 0.4s ease' }}
       >
         Find my ritual
       </button>

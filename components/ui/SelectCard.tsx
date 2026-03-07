@@ -31,10 +31,10 @@ export default function SelectCard({ card, selected, onToggle, disabled }: Selec
       }}
     >
       <div style={{ flex: 1 }}>
-        {/* Primary label — hierarchy level 3 */}
+        {/* Card label — weight 400 at rest, 500 when selected */}
         <div style={{
           fontSize: 12,
-          fontWeight: selected ? 400 : 300,
+          fontWeight: selected ? 500 : 400,
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
           color: selected ? '#B8844A' : '#1A1713',
@@ -44,7 +44,7 @@ export default function SelectCard({ card, selected, onToggle, disabled }: Selec
           {card.label}
         </div>
 
-        {/* Description — hierarchy level 4 */}
+        {/* Description — weight 300, reading voice */}
         <div style={{
           fontSize: 11,
           fontWeight: 300,

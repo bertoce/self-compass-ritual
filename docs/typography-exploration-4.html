@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umbral — Helvetica Neue · Weight System</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:       #F8F6F1;
+    --stone:       #1A1713;
+    --amber:       #B8844A;
+    --hairline:    #D8D0C4;
+    --stone-mid:   #6B6458;
+    --stone-light: #C4B9AB;
+    --hv: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    background: #E4E0DA;
+    padding: 64px 48px 120px;
+    font-family: var(--hv);
+  }
+
+  /* ── Page header */
+  .page-header {
+    max-width: 1100px;
+    margin: 0 auto 64px;
+  }
+  .eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    margin-bottom: 12px;
+  }
+  .page-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 40px;
+  }
+
+  /* ── Weight legend */
+  .legend {
+    max-width: 1100px;
+    margin: 0 auto 72px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .leg-cell {
+    background: var(--linen);
+    padding: 20px 18px 22px;
+  }
+  .leg-weight {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 10px;
+  }
+  .leg-sample { color: var(--stone); line-height: 1.2; margin-bottom: 8px; }
+  .leg-use {
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--stone-light);
+    line-height: 1.5;
+  }
+
+  /* ── Screen columns */
+  .screens {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .col-label {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  /* ── Phone */
+  .phone {
+    border-radius: 46px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 0 1px rgba(255,255,255,0.5),
+      0 16px 56px rgba(26,23,19,0.16),
+      0 2px 8px rgba(26,23,19,0.08);
+  }
+  .notch {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0 4px;
+  }
+  .notch-bar {
+    width: 64px;
+    height: 5px;
+    background: rgba(26,23,19,0.1);
+    border-radius: 3px;
+  }
+  .pi { padding: 10px 30px 40px; }
+
+  /* ── Shared UI atoms */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 30px;
+  }
+  .wordmark {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .nav-link {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+  }
+  .progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pdot { width: 3px; height: 3px; border-radius: 50%; }
+  .pdot-on   { background: var(--stone); }
+  .pdot-done { background: var(--amber); }
+  .pdot-off  { background: var(--hairline); }
+  .ptick     { width: 8px; height: 1px; background: var(--hairline); }
+  .ptick-done{ width: 8px; height: 1px; background: var(--amber); }
+  .plabel {
+    font-size: 6px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    text-align: center;
+  }
+  .hl { height: 1px; background: var(--hairline); }
+  .al { height: 1px; background: rgba(184,132,74,0.3); }
+  .card {
+    border-bottom: 1px solid var(--hairline);
+    padding: 11px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-sel {
+    background: rgba(184,132,74,0.05);
+    margin: 0 -30px;
+    padding: 11px 30px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dot-sel { width: 4px; height: 4px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+  .action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* stage backgrounds */
+  .bg-land { background: linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%); }
+  .bg-s1   { background: radial-gradient(ellipse at 60% 0%, #E8D8EB 0%, #F5F0F4 40%, #F7F4F0 100%); }
+  .bg-s3   { background: radial-gradient(ellipse at 50% 55%, #E4C87C 0%, #F0E0B0 35%, #F5EDD8 100%); }
+
+  /* ══ WEIGHT SYSTEM
+     100  — vast space, opening lines, arrivals
+     200  — headlines, stage questions
+     300  — body, descriptions, sublines
+     400  — card labels, running UI
+     500  — section labels, selected states, structural anchors
+     600  — ritual title, the one concrete wall
+  ═══════════════════════════════════════════════════════ */
+
+  /* ── Landing */
+  .land-pre {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .land-h1 {
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+  .land-sub {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--stone-mid);
+    margin-bottom: 8px;
+  }
+  .land-problem-label {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+  }
+  .land-problem-body {
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 1.75;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+  .land-cta {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    background: var(--stone);
+    color: var(--linen);
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .land-meta {
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* ── Stage 1 */
+  .s1-kicker {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .s1-question {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.55;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .s1-subq {
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--stone-mid);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .s1-section-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .s1-section-lbl {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+  }
+  .s1-count {
+    font-size: 8px;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: 0.08em;
+  }
+  .s1-card-lbl {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--stone);
+    letter-spacing: 0.01em;
+  }
+  .s1-card-lbl-sel {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: 0.01em;
+  }
+  .s1-card-desc {
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .s1-cta-ready {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    background: var(--stone);
+    color: var(--linen);
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  /* ── Stage 3 */
+  .s3-kicker {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .s3-arrival {
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+  .s3-section-lbl {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    margin-bottom: 8px;
+  }
+  .s3-section-lbl-amber {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .s3-home {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+  }
+  .s3-ritual-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .s3-ritual-body {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .s3-nudge {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--stone-mid);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .s3-action-lbl {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--stone-mid);
+  }
+  .s3-glyph {
+    font-size: 9px;
+    color: var(--stone-light);
+  }
+  .s3-closing {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+    margin-top: 18px;
+  }
+
+  /* ── Annotation strip */
+  .ann-strip {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .ann {
+    border-top: 2px solid var(--stone);
+    padding-top: 14px;
+  }
+  .ann-title {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .ann-body {
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--stone-mid);
+  }
+  .ann-body b { font-weight: 600; color: var(--stone); }
+</style>
+</head>
+<body>
+
+<!-- ── Page header -->
+<div class="page-header">
+  <p class="eyebrow">Umbral · Typography</p>
+  <p class="page-title">Helvetica Neue · Weight System</p>
+
+  <!-- Weight legend -->
+  <div class="legend">
+    <div class="leg-cell">
+      <p class="leg-weight">Weight 100</p>
+      <p class="leg-sample" style="font-size:22px;font-weight:100;">Arrival</p>
+      <p class="leg-use">Opening lines. Stage arrivals. "Here is what you found." Vast, quiet, monolithic.</p>
+    </div>
+    <div class="leg-cell">
+      <p class="leg-weight">Weight 200</p>
+      <p class="leg-sample" style="font-size:18px;font-weight:200;">Questions</p>
+      <p class="leg-use">Stage questions. Landing headline. The asking voice. Light enough to invite.</p>
+    </div>
+    <div class="leg-cell">
+      <p class="leg-weight">Weight 300</p>
+      <p class="leg-sample" style="font-size:15px;font-weight:300;">Body text</p>
+      <p class="leg-use">Sublines, descriptions, ritual body, Home Self summary. The reading voice.</p>
+    </div>
+    <div class="leg-cell">
+      <p class="leg-weight">Weight 500</p>
+      <p class="leg-sample" style="font-size:13px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;">STRUCTURE</p>
+      <p class="leg-use">Section labels, selected states, navigation, CTAs. The structural bones.</p>
+    </div>
+    <div class="leg-cell">
+      <p class="leg-weight">Weight 600</p>
+      <p class="leg-sample" style="font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B8844A;">THE RITUAL</p>
+      <p class="leg-use">Ritual title only. One concrete wall per screen. Used once. Hits hard.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ Three screens ══ -->
+<div class="screens">
+
+  <!-- ── Screen 1: Landing -->
+  <div>
+    <p class="col-label">Landing</p>
+    <div class="phone bg-land">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <span class="nav-link">Begin</span>
+        </div>
+
+        <p class="land-pre">For those who cross worlds</p>
+        <h1 class="land-h1">Every time<br>you cross back,<br>something lifts.</h1>
+        <p class="land-sub">That is you, returning to yourself.</p>
+        <p class="land-sub">Most people don't realize that feeling is accessible without the flight.</p>
+
+        <p class="land-problem-label">The problem</p>
+        <p class="land-problem-body">Most people are living as two versions of themselves at once. One who knows what matters. One who has become whoever the environment expects.</p>
+
+        <a class="land-cta">Begin the experience</a>
+        <p class="land-meta">10–15 min · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 2: Stage 1 -->
+  <div>
+    <p class="col-label">Stage 1 · Home Self</p>
+    <div class="phone bg-s1">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);">Home</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);">Gap</span>
+            </div>
+            <div class="ptick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-off"></div>
+              <span class="plabel" style="color:var(--stone-light);">Ritual</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="s1-kicker">Stage 1 · Home Self</p>
+        <p class="s1-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="s1-subq">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+
+        <div class="s1-section-row">
+          <span class="s1-section-lbl">What mattered most</span>
+          <span class="s1-count">2 / 3</span>
+        </div>
+        <div class="hl">
+          <div class="card-sel">
+            <div>
+              <div class="s1-card-lbl-sel">Belonging</div>
+              <div class="s1-card-desc">Family, community, a place that knows you</div>
+            </div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div>
+              <div class="s1-card-lbl">Freedom</div>
+              <div class="s1-card-desc">Choosing your own path, on your own terms</div>
+            </div>
+          </div>
+          <div class="card-sel">
+            <div>
+              <div class="s1-card-lbl-sel">Deep Connection</div>
+              <div class="s1-card-desc">Being truly known, not just liked</div>
+            </div>
+            <div class="dot-sel"></div>
+          </div>
+          <div class="card">
+            <div>
+              <div class="s1-card-lbl">Stillness</div>
+              <div class="s1-card-desc">Quiet. Slowness. A life without urgency</div>
+            </div>
+          </div>
+          <div class="card">
+            <div>
+              <div class="s1-card-lbl">Purpose</div>
+              <div class="s1-card-desc">Doing something that matters beyond yourself</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="s1-cta-ready">See the gap</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 3: Stage 3 -->
+  <div>
+    <p class="col-label">Stage 3 · Ritual</p>
+    <div class="phone bg-s3">
+      <div class="notch"><div class="notch-bar"></div></div>
+      <div class="pi">
+        <div class="hdr">
+          <span class="wordmark">Umbral</span>
+          <div class="progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);">Home</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-done"></div>
+              <span class="plabel" style="color:var(--amber);">Gap</span>
+            </div>
+            <div class="ptick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="pdot pdot-on"></div>
+              <span class="plabel" style="color:var(--stone);">Ritual</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="s3-kicker">Stage 3 · Your Ritual</p>
+        <p class="s3-arrival">Here is<br>what you<br>found.</p>
+
+        <!-- Home Self -->
+        <p class="s3-section-lbl">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:14px 0;margin-bottom:18px;">
+          <p class="s3-home">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+
+        <!-- Ritual -->
+        <p class="s3-section-lbl-amber">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:14px 0;margin-bottom:12px;">
+          <p class="s3-ritual-title">The Belonging Check-In</p>
+          <p class="s3-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+
+        <p class="s3-nudge">Start tomorrow. Just once. See what returns.</p>
+
+        <p class="s3-section-lbl" style="margin-bottom:8px;">Keep this</p>
+        <div class="hl">
+          <div class="action-row">
+            <span class="s3-action-lbl">Add to calendar</span>
+            <span class="s3-glyph">↗</span>
+          </div>
+          <div class="action-row">
+            <span class="s3-action-lbl">Share ritual</span>
+            <span class="s3-glyph">↗</span>
+          </div>
+        </div>
+
+        <p class="s3-closing">The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Annotations -->
+<div class="ann-strip">
+  <div class="ann">
+    <p class="ann-title">Landing</p>
+    <p class="ann-body"><b>100</b> for the headline — vast, quiet, like concrete in morning light. <b>500</b> for the kicker and CTA — the structural bones snap into place. <b>300</b> for all body copy. The heavy CTA button is the one wall on the page.</p>
+  </div>
+  <div class="ann">
+    <p class="ann-title">Stage 1 · Home Self</p>
+    <p class="ann-body"><b>200</b> for the question — light enough to invite reflection. <b>500</b> for section labels and selected card states — selection feels deliberate, not soft. <b>400</b> for default card labels.</p>
+  </div>
+  <div class="ann">
+    <p class="ann-title">Stage 3 · Ritual</p>
+    <p class="ann-body"><b>100</b> for "Here is what you found." — the biggest emptiness, the arrival. <b>600</b> for the ritual title only — one concrete wall per page. Everything else at <b>300</b> so the 600 lands.</p>
+  </div>
+</div>
+
+</body>
+</html>

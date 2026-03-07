@@ -29,11 +29,13 @@ export default function Home() {
               <circle cx="16" cy="16" r="1.5" fill="#B8844A" />
               <polygon points="16,5 14.5,12 16,10.5 17.5,12" fill="#1A1713" />
             </svg>
-            <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#1A1713' }}>
+            {/* Wordmark — weight 500, structural anchor */}
+            <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#1A1713' }}>
               Umbral
             </span>
           </div>
-          <Link href="/experience" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458', borderBottom: '1px solid #D8D0C4', paddingBottom: 2 }}>
+          {/* Nav — weight 500, structural */}
+          <Link href="/experience" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', borderBottom: '1px solid #D8D0C4', paddingBottom: 2 }}>
             Begin
           </Link>
         </div>
@@ -45,18 +47,18 @@ export default function Home() {
           {/* ── HERO ───────────────────────────────── */}
           <section style={{ paddingTop: 80, paddingBottom: 80 }}>
 
-            {/* Kicker */}
-            <p className="rise-1" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#B8844A', marginBottom: 28 }}>
+            {/* Kicker — weight 500, structural label */}
+            <p className="rise-1" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 28 }}>
               For those who cross worlds
             </p>
 
-            {/* Headline */}
-            <h1 className="rise-2" style={{ fontSize: 30, fontWeight: 200, lineHeight: 1.4, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 24 }}>
+            {/* Headline — weight 100, vast arrival */}
+            <h1 className="rise-2" style={{ fontSize: 30, fontWeight: 100, lineHeight: 1.4, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 24 }}>
               Every time you cross back,<br />
               something lifts.
             </h1>
 
-            {/* Subline */}
+            {/* Sublines — weight 300, reading voice */}
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 20 }}>
               That isn't the destination. That is you, returning to yourself.
             </p>
@@ -64,16 +66,16 @@ export default function Home() {
               Most people don't realize that feeling is accessible without the flight.
             </p>
 
-            {/* CTA */}
+            {/* CTA — weight 500, structural bone */}
             <div className="rise-4">
               <Link
                 href="/experience"
                 className="block text-center"
-                style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 300, letterSpacing: '0.22em', textTransform: 'uppercase', transition: 'opacity 0.4s ease' }}
+                style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', transition: 'opacity 0.4s ease' }}
               >
                 Begin the experience
               </Link>
-              <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
                 10–15 minutes &nbsp;·&nbsp; No account &nbsp;·&nbsp; No writing
               </p>
             </div>
@@ -83,9 +85,11 @@ export default function Home() {
 
           {/* ── THE PROBLEM ──────────────────────── */}
           <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#C4B9AB', marginBottom: 24 }}>
+            {/* Section label — weight 500 */}
+            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
               The problem
             </p>
+            {/* Problem headline — weight 200, the asking voice */}
             <p style={{ fontSize: 16, fontWeight: 200, lineHeight: 1.75, color: '#1A1713', marginBottom: 20 }}>
               Most people are living as two versions of themselves simultaneously.
             </p>
@@ -101,7 +105,8 @@ export default function Home() {
 
           {/* ── WHAT IT IS ───────────────────────── */}
           <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#C4B9AB', marginBottom: 24 }}>
+            {/* Section label — weight 500 */}
+            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
               What this is
             </p>
 
@@ -133,7 +138,8 @@ export default function Home() {
 
           {/* ── WHAT YOU LEAVE WITH ──────────────── */}
           <section style={{ paddingTop: 72, paddingBottom: 72 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#C4B9AB', marginBottom: 24 }}>
+            {/* Section label — weight 500 */}
+            <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
               You leave with
             </p>
             <div style={{ borderTop: '1px solid #D8D0C4' }}>
@@ -143,7 +149,7 @@ export default function Home() {
                 ['III', 'One ritual, specific to you, doable tomorrow'],
               ].map(([num, text]) => (
                 <div key={num} style={{ borderBottom: '1px solid #D8D0C4', padding: '20px 0', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: 9, fontWeight: 300, color: '#B8844A', letterSpacing: '0.1em', minWidth: 16, paddingTop: 2 }}>{num}</span>
+                  <span style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.1em', minWidth: 16, paddingTop: 2 }}>{num}</span>
                   <span style={{ fontSize: 13, fontWeight: 300, color: '#1A1713', lineHeight: 1.7 }}>{text}</span>
                 </div>
               ))}
@@ -154,19 +160,21 @@ export default function Home() {
 
           {/* ── CLOSING ──────────────────────────── */}
           <section style={{ paddingTop: 72, paddingBottom: 80 }}>
+            {/* Closing statement — weight 200, inviting */}
             <p style={{ fontSize: 20, fontWeight: 200, lineHeight: 1.6, color: '#1A1713', marginBottom: 48 }}>
               The gap is real.<br />
               And closeable.<br />
               Without leaving.
             </p>
+            {/* CTA — weight 500 */}
             <Link
               href="/experience"
               className="block text-center"
-              style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 300, letterSpacing: '0.22em', textTransform: 'uppercase' }}
+              style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase' }}
             >
               Begin the experience
             </Link>
-            <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
+            <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
               No account &nbsp;·&nbsp; No signup &nbsp;·&nbsp; 10–15 minutes
             </p>
           </section>
@@ -175,7 +183,7 @@ export default function Home() {
       </main>
 
       <footer style={{ borderTop: '1px solid #D8D0C4', padding: '20px 0', textAlign: 'center' }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C4B9AB' }}>
+        <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB' }}>
           Schwartz Values · Self-Determination Theory
         </p>
       </footer>

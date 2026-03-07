@@ -26,23 +26,27 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
   return (
     <div className="stage-enter">
 
-      {/* ── Hierarchy level 1 — arrival ─────────── */}
+      {/* ── Arrival ──────────────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#B8844A', marginBottom: 20 }}>
+        {/* Stage kicker — weight 500, structural */}
+        <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 20 }}>
           Stage 3 · Your Ritual
         </p>
-        <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713' }}>
+        {/* Arrival — weight 100, vast quiet space */}
+        <p style={{ fontSize: 24, fontWeight: 100, lineHeight: 1.5, letterSpacing: '-0.01em', color: '#1A1713' }}>
           Here is what you found.
         </p>
       </div>
 
       {/* ── Home Self ───────────────────────────── */}
       <div className="rise-2" style={{ marginBottom: 48 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458', marginBottom: 12 }}>
+        {/* Section label — weight 500 */}
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
           Your Home Self
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4', borderBottom: '1px solid #D8D0C4', padding: '28px 0' }}>
-          <p style={{ fontSize: 14, fontWeight: 200, lineHeight: 1.9, color: '#1A1713', letterSpacing: '0.01em' }}>
+          {/* Home Self summary — weight 300, reading voice */}
+          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.9, color: '#1A1713', letterSpacing: '0.01em' }}>
             {data.homeSelfSummary}
           </p>
         </div>
@@ -50,15 +54,16 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
 
       {/* ── Ritual ──────────────────────────────── */}
       <div className="rise-3" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#B8844A', marginBottom: 12 }}>
+        {/* Section label — weight 500, amber */}
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 12 }}>
           Your ritual
         </p>
         <div style={{ borderTop: '1px solid rgba(184,132,74,0.3)', borderBottom: '1px solid rgba(184,132,74,0.3)', padding: '28px 0' }}>
-          {/* Ritual title — hierarchy level 2 within ritual */}
-          <p style={{ fontSize: 11, fontWeight: 400, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#B8844A', marginBottom: 16 }}>
+          {/* Ritual title — weight 600, ONE concrete wall per screen */}
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#B8844A', marginBottom: 16 }}>
             {data.ritualTitle}
           </p>
-          {/* Ritual body — the most important text on the page */}
+          {/* Ritual body — weight 300, reading voice */}
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.95, color: '#1A1713', fontStyle: 'italic', letterSpacing: '0.01em' }}>
             "{data.ritual}"
           </p>
@@ -70,7 +75,8 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
 
       {/* ── Actions ─────────────────────────────── */}
       <div className="rise-4" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458', marginBottom: 12 }}>
+        {/* Section label — weight 500 */}
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
           Keep this
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4' }}>
@@ -79,7 +85,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
             { label: 'Share ritual',   glyph: '↗', fn: handleShare },
           ].map(({ label, glyph, fn }) => (
             <button key={label} onClick={fn}
-              style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 0', borderBottom: '1px solid #D8D0C4', background: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 300, letterSpacing: '0.08em', color: '#6B6458', transition: 'color 0.3s ease' }}
+              style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 0', borderBottom: '1px solid #D8D0C4', background: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 400, letterSpacing: '0.08em', color: '#6B6458', transition: 'color 0.3s ease' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#B8844A')}
               onMouseLeave={e => (e.currentTarget.style.color = '#6B6458')}
             >
@@ -95,8 +101,9 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
         <p style={{ fontSize: 12, fontWeight: 300, lineHeight: 1.8, color: '#9B9085', fontStyle: 'italic', marginBottom: 28 }}>
           This compass is yours. The ritual grows through return, not perfection.
         </p>
+        {/* Begin again — quiet, weight 400 */}
         <button onClick={onRestart}
-          style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C4B9AB', background: 'none', cursor: 'pointer', borderBottom: '1px solid #D8D0C4', paddingBottom: 2, transition: 'color 0.3s ease' }}
+          style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', background: 'none', cursor: 'pointer', borderBottom: '1px solid #D8D0C4', paddingBottom: 2, transition: 'color 0.3s ease' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#1A1713')}
           onMouseLeave={e => (e.currentTarget.style.color = '#C4B9AB')}
         >

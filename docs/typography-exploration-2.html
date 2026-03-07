@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umbral — Typography: A + Mono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:       #F8F6F1;
+    --stone:       #1A1713;
+    --amber:       #B8844A;
+    --hairline:    #D8D0C4;
+    --stone-mid:   #6B6458;
+    --stone-light: #C4B9AB;
+    --sans:        'DM Sans', sans-serif;
+    --mono:        'DM Mono', monospace;
+  }
+
+  body {
+    background: #EDEAE5;
+    padding: 56px 40px 100px;
+    font-family: var(--sans);
+  }
+
+  /* ── Page header */
+  .page-header {
+    max-width: 1100px;
+    margin: 0 auto 16px;
+  }
+  .page-eyebrow {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: var(--sans);
+    font-size: 24px;
+    font-weight: 200;
+    color: var(--stone);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .page-desc {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--stone-mid);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ── Type system legend */
+  .legend {
+    max-width: 1100px;
+    margin: 0 auto 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .legend-cell {
+    background: var(--linen);
+    padding: 20px 24px;
+  }
+  .legend-tag {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 10px;
+  }
+  .legend-sample-sans-200 {
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 200;
+    color: var(--stone);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .legend-sample-sans-300 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--stone-mid);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .legend-sample-sans-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+  }
+  .legend-sample-mono-400 {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--stone);
+    line-height: 1.85;
+    margin-bottom: 6px;
+  }
+  .legend-sample-mono-italic {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--stone);
+    line-height: 1.85;
+  }
+  .legend-note {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-top: 8px;
+  }
+
+  /* ── Screen row */
+  .screen-row {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .screen-col {}
+  .screen-label {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  /* ── Phone frame */
+  .phone {
+    border-radius: 42px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 0 1px rgba(255,255,255,0.6),
+      0 8px 40px rgba(26,23,19,0.14),
+      0 2px 8px rgba(26,23,19,0.08);
+    position: relative;
+  }
+  .phone-notch {
+    display: flex;
+    justify-content: center;
+    padding: 14px 0 4px;
+  }
+  .phone-notch-bar {
+    width: 72px;
+    height: 5px;
+    background: rgba(26,23,19,0.12);
+    border-radius: 3px;
+  }
+  .phone-inner {
+    padding: 8px 28px 36px;
+  }
+
+  /* ── UI atoms */
+  .ui-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ui-wordmark {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .ui-begin {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+  }
+  .ui-progress {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .ui-dot-active {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--stone);
+  }
+  .ui-dot-done {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--amber);
+  }
+  .ui-dot-inactive {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--hairline);
+  }
+  .ui-progress-label {
+    font-family: var(--sans);
+    font-size: 6px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    text-align: center;
+  }
+  .ui-progress-tick {
+    width: 8px; height: 1px; background: var(--hairline);
+  }
+  .ui-progress-tick-done {
+    width: 8px; height: 1px; background: var(--amber);
+  }
+  .ui-kicker-amber {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+  .ui-kicker-sage {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6B8C70;
+    margin-bottom: 14px;
+  }
+  .ui-section-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .ui-section-label {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+  }
+  .ui-section-count {
+    font-family: var(--sans);
+    font-size: 8px;
+    color: var(--amber);
+    letter-spacing: 0.08em;
+  }
+  .ui-hairline { height: 1px; background: var(--hairline); }
+  .ui-amber-line { height: 1px; background: rgba(184,132,74,0.3); }
+  .ui-card {
+    border-bottom: 1px solid var(--hairline);
+    padding: 11px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ui-card-selected {
+    background: rgba(184,132,74,0.05);
+    margin: 0 -28px;
+    padding: 11px 28px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ui-card-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.01em;
+  }
+  .ui-card-label-sel {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: 0.01em;
+  }
+  .ui-card-desc {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .ui-dot-sel {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--amber); flex-shrink: 0;
+  }
+  .ui-cta {
+    display: block;
+    width: 100%;
+    padding: 13px 0;
+    background: var(--stone);
+    color: var(--linen);
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .ui-meta {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .ui-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ui-action-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--stone-mid);
+  }
+  .ui-glyph {
+    font-family: var(--sans);
+    font-size: 9px;
+    color: var(--stone-light);
+  }
+
+  /* ── MONO — personal content */
+  .mono-headline {
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--stone);
+    margin-bottom: 14px;
+  }
+  .mono-subline {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    margin-bottom: 8px;
+  }
+  .mono-question {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .mono-subq {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--stone-mid);
+  }
+  .mono-home-self {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--stone);
+  }
+  .mono-ritual-title {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .mono-ritual-body {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.9;
+    color: var(--stone);
+  }
+  .mono-closing {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.8;
+    color: #9B9085;
+    text-align: center;
+  }
+  .mono-found {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+
+  /* ── Stage backgrounds */
+  .bg-landing { background: linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%); }
+  .bg-stage1  { background: radial-gradient(ellipse at 60% 0%, #E8D8EB 0%, #F5F0F4 40%, #F7F4F0 100%); }
+  .bg-stage3  { background: radial-gradient(ellipse at 50% 55%, #E4C87C 0%, #F0E0B0 35%, #F5EDD8 100%); }
+
+  /* ── Annotations */
+  .annotation {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .ann {
+    padding: 16px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .ann-title {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .ann-body {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--stone-mid);
+  }
+  .ann-body strong {
+    font-weight: 400;
+    color: var(--stone);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Page header -->
+<div class="page-header">
+  <p class="page-eyebrow">Umbral · Typography</p>
+  <h1 class="page-title">Variation A + Mono</h1>
+  <p class="page-desc">DM Sans (UI) · DM Mono (personal content)<br>The interface speaks in sans. What comes back is in mono.</p>
+</div>
+
+<!-- ── Type system legend -->
+<div class="legend">
+  <div class="legend-cell">
+    <p class="legend-tag">DM Sans — interface</p>
+    <p class="legend-sample-sans-200">Every time you cross back,<br>something lifts.</p>
+    <p class="legend-sample-sans-300">That is you, returning to yourself.</p>
+    <p class="legend-sample-sans-label">Stage 1 · Home Self</p>
+    <p class="legend-note">Weight 200 headings · 300 body · 400 selected states · labels in tracked uppercase</p>
+  </div>
+  <div class="legend-cell">
+    <p class="legend-tag">DM Mono — personal content</p>
+    <p class="legend-sample-mono-400">Bring to mind a moment where<br>you felt most like yourself.</p>
+    <p class="legend-sample-mono-italic">"Before you sleep, send one message<br>to someone who knows you."</p>
+    <p class="legend-note">Weight 400 upright · 400 italic for ritual body · 300 italic for subquestions</p>
+  </div>
+</div>
+
+<!-- ── Three screens -->
+<div class="screen-row">
+
+  <!-- Screen 1: Landing -->
+  <div class="screen-col">
+    <p class="screen-label">Landing</p>
+    <div class="phone bg-landing">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="phone-inner">
+        <div class="ui-header">
+          <span class="ui-wordmark">Umbral</span>
+          <span class="ui-begin">Begin</span>
+        </div>
+        <p class="ui-kicker-amber">For those who cross worlds</p>
+        <h2 class="mono-headline">Every time you<br>cross back,<br>something lifts.</h2>
+        <p class="mono-subline">That is you, returning to yourself.</p>
+        <p class="mono-subline" style="margin-bottom:24px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <div class="ui-hairline" style="margin-bottom:20px;"></div>
+        <p class="ui-section-label" style="margin-bottom:12px;">The problem</p>
+        <p class="mono-subline" style="margin-bottom:0;">Most people are living as two versions of themselves simultaneously.</p>
+        <div class="ui-cta">Begin the experience</div>
+        <p class="ui-meta">10–15 min · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Stage 1 -->
+  <div class="screen-col">
+    <p class="screen-label">Stage 1 · Home Self</p>
+    <div class="phone bg-stage1">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="phone-inner">
+        <div class="ui-header">
+          <span class="ui-wordmark">Umbral</span>
+          <div class="ui-progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-active"></div>
+              <span class="ui-progress-label" style="color:var(--stone);">Home</span>
+            </div>
+            <div class="ui-progress-tick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-inactive"></div>
+              <span class="ui-progress-label" style="color:var(--stone-light);">Gap</span>
+            </div>
+            <div class="ui-progress-tick"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-inactive"></div>
+              <span class="ui-progress-label" style="color:var(--stone-light);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="ui-kicker-amber">Stage 1 · Home Self</p>
+        <p class="mono-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="mono-subq" style="margin-bottom:22px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="ui-section-row">
+          <span class="ui-section-label">What mattered most</span>
+          <span class="ui-section-count">2 / 3</span>
+        </div>
+        <div class="ui-hairline">
+          <div class="ui-card-selected">
+            <div>
+              <div class="ui-card-label-sel">Belonging</div>
+              <div class="ui-card-desc">Family, community, a place that knows you</div>
+            </div>
+            <div class="ui-dot-sel"></div>
+          </div>
+          <div class="ui-card">
+            <div>
+              <div class="ui-card-label">Freedom</div>
+              <div class="ui-card-desc">Choosing your own path, on your own terms</div>
+            </div>
+          </div>
+          <div class="ui-card-selected">
+            <div>
+              <div class="ui-card-label-sel">Deep Connection</div>
+              <div class="ui-card-desc">Being truly known, not just liked</div>
+            </div>
+            <div class="ui-dot-sel"></div>
+          </div>
+          <div class="ui-card">
+            <div>
+              <div class="ui-card-label">Stillness</div>
+              <div class="ui-card-desc">Quiet. Slowness. A life without urgency</div>
+            </div>
+          </div>
+          <div class="ui-card">
+            <div>
+              <div class="ui-card-label">Purpose</div>
+              <div class="ui-card-desc">Doing something that matters beyond yourself</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Stage 3 -->
+  <div class="screen-col">
+    <p class="screen-label">Stage 3 · Ritual</p>
+    <div class="phone bg-stage3">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="phone-inner">
+        <div class="ui-header">
+          <span class="ui-wordmark">Umbral</span>
+          <div class="ui-progress">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-done"></div>
+              <span class="ui-progress-label" style="color:var(--amber);">Home</span>
+            </div>
+            <div class="ui-progress-tick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-done"></div>
+              <span class="ui-progress-label" style="color:var(--amber);">Gap</span>
+            </div>
+            <div class="ui-progress-tick-done"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="ui-dot-active"></div>
+              <span class="ui-progress-label" style="color:var(--stone);">Ritual</span>
+            </div>
+          </div>
+        </div>
+        <p class="ui-kicker-amber">Stage 3 · Your Ritual</p>
+        <p class="mono-found">Here is what you found.</p>
+
+        <!-- Home Self -->
+        <p class="ui-section-label" style="margin-bottom:8px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:14px 0;margin-bottom:18px;">
+          <p class="mono-home-self">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+
+        <!-- Ritual -->
+        <p class="ui-section-label" style="color:var(--amber);margin-bottom:8px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:14px 0;margin-bottom:14px;">
+          <p class="mono-ritual-title">The Belonging Check-In</p>
+          <p class="mono-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+
+        <p style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--stone-mid);margin-bottom:16px;line-height:1.6;">Start tomorrow. Just once. See what returns.</p>
+
+        <!-- Actions -->
+        <p class="ui-section-label" style="margin-bottom:8px;">Keep this</p>
+        <div class="ui-hairline">
+          <div class="ui-action-row">
+            <span class="ui-action-label">Add to calendar</span>
+            <span class="ui-glyph">↗</span>
+          </div>
+          <div class="ui-action-row">
+            <span class="ui-action-label">Share ritual</span>
+            <span class="ui-glyph">↗</span>
+          </div>
+        </div>
+
+        <p class="mono-closing" style="margin-top:18px;">The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Annotations -->
+<div class="annotation">
+  <div class="ann">
+    <p class="ann-title">Landing</p>
+    <p class="ann-body"><strong>DM Sans 200</strong> carries the headline. <strong>DM Sans 300</strong> for sublines and the problem section. The sans keeps it crisp and navigable. No mono on the landing — the personal content hasn't arrived yet.</p>
+  </div>
+  <div class="ann">
+    <p class="ann-title">Stage 1 · Home Self</p>
+    <p class="ann-body">The shift happens here. <strong>DM Mono 400</strong> for the question — "Bring to mind a moment..." — signals that something different is being asked. <strong>DM Mono 300 italic</strong> for the subquestion. Card labels stay in <strong>DM Sans</strong>.</p>
+  </div>
+  <div class="ann">
+    <p class="ann-title">Stage 3 · Ritual</p>
+    <p class="ann-body"><strong>DM Mono</strong> holds all the personal content: the opening, the Home Self summary, the ritual body. UI labels (section names, actions) return to <strong>DM Sans</strong>. The contrast is clear and intentional.</p>
+  </div>
+</div>
+
+</body>
+</html>
