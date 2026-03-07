@@ -65,7 +65,7 @@ export default function Home() {
                 className="block text-center"
                 style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', transition: 'opacity 0.4s ease' }}
               >
-                Begin the experience
+                Arrive
               </Link>
               <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
                 Just you and a few honest questions.
@@ -153,7 +153,7 @@ export default function Home() {
                 {[
                   ['I',   'A reflection of who you are when most yourself'],
                   ['II',  'An honest look at where your days actually live'],
-                  ['III', 'One practice, built from your nature, doable tomorrow'],
+                  ['III', 'One practice, built from your nature, yours to begin'],
                 ].map(([num, text]) => (
                   <div key={num} style={{ borderBottom: '1px solid #D8D0C4', padding: '20px 0', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
                     <span style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.1em', minWidth: 16, paddingTop: 2 }}>{num}</span>
@@ -162,6 +162,17 @@ export default function Home() {
                 ))}
               </div>
             </section>
+
+            {/* ── CTA inside learn more ─────────── */}
+            <div style={{ paddingBottom: 56 }}>
+              <Link
+                href="/experience"
+                className="block text-center"
+                style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase' }}
+              >
+                Arrive
+              </Link>
+            </div>
 
           </details>
 

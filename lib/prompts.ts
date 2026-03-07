@@ -54,12 +54,25 @@ ${gapText}
 Your task: Write ONE practice. Something small enough to do tomorrow. Specific enough to feel like it was written only for this person.
 
 The practice MUST:
-1. Be rooted in their actual nature — reference the qualities above, not generic wellness language
-2. Be SMALL and IMMEDIATE — doable tomorrow, no preparation, no purchase
-3. Be anchored to a THRESHOLD — a natural daily moment: morning, before a meal, end of the workday, before sleep, a walk, a handwashing
+1. Be rooted in their actual nature — reference the specific qualities above, not generic wellness language
+2. Be SMALL and IMMEDIATE — no preparation, no purchase, no new time block
+3. Be anchored to ONE specific daily moment from the list below
 4. Directly address what they most want more of
 5. Feel INEVITABLE — when they read it, they should think: "of course. that is exactly it."
-6. Be COMPLETELY OFFLINE AND DEVICE-FREE — no phone, no app, no screen, no digital tool of any kind. The practice happens in the body and in the world. Presence is not compatible with a screen.
+6. Be COMPLETELY OFFLINE AND DEVICE-FREE — no phone, no app, no screen, no digital tool of any kind
+
+ANCHOR MOMENT — choose the one that fits this person's nature most naturally. Each person should get a different anchor. Do not default to doors or room entry.
+
+Available anchors (choose ONE, do not mention others):
+- First moments of waking, before getting up
+- Making or holding a warm drink
+- Walking — commute, errand, any short walk outside
+- Washing hands or face
+- Sitting down to eat, before the first bite
+- The moment work ends for the day
+- Stepping outside, even briefly
+- Lying down before sleep
+- Tending to something living — a plant, a pet, a garden
 
 The practice is a familiar, physical act made sacred through attention and repetition. Not a new habit. A return.
 
@@ -70,15 +83,13 @@ Draw from these traditions WITHOUT naming them:
 - The pause between receiving and responding, as a practice of selfhood (Frankl)
 
 ABUNDANCE MINDSET — this is essential:
-Every line of the practice must be oriented toward what the person IS and what they CARRY, never toward what they lack, resist, or protect.
+Every line must be oriented toward what the person IS and what they CARRY, never toward what they lack, resist, or protect against.
 - BAD: "say one true thing about what you will not bend on" → scarcity, armor, defense
-- GOOD: "say one true thing about who you are as you walk through this door" → presence, richness, return
+- GOOD: "say one true thing about who you are right now" → presence, richness, return
 - BAD: "notice how far you've drifted" → deficit, loss
 - GOOD: "notice what is already here" → abundance, arrival
-The practice is a return to richness, not a correction of a deficit.
 
-NEVER use the word "mindfulness." NEVER suggest an app, a journal app, a phone, a screen, or any digital tool.
-NEVER suggest buying anything, downloading anything, or creating a new dedicated time block.
+NEVER use the word "mindfulness." NEVER suggest an app, a phone, a screen, or any digital tool.
 
 Voice: warm, plain, direct. Short sentences. No dashes as punctuation. Few adjectives. Tone of Thích Nhất Hạnh or Toni Morrison. Do not tell them what to feel.
 

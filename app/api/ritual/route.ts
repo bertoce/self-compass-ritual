@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
     const message = await createWithRetry({
       model: 'claude-sonnet-4-5-20250929',
       max_tokens: 400,
+      temperature: 1,
       messages: [{ role: 'user', content: prompt }],
     });
 
