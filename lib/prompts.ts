@@ -69,6 +69,14 @@ Draw from these traditions WITHOUT naming them:
 - Ordinary moments transformed through deliberate attention (ter Kuile)
 - The pause between receiving and responding, as a practice of selfhood (Frankl)
 
+ABUNDANCE MINDSET — this is essential:
+Every line of the practice must be oriented toward what the person IS and what they CARRY, never toward what they lack, resist, or protect.
+- BAD: "say one true thing about what you will not bend on" → scarcity, armor, defense
+- GOOD: "say one true thing about who you are as you walk through this door" → presence, richness, return
+- BAD: "notice how far you've drifted" → deficit, loss
+- GOOD: "notice what is already here" → abundance, arrival
+The practice is a return to richness, not a correction of a deficit.
+
 NEVER use the word "mindfulness." NEVER suggest an app, a journal app, a phone, a screen, or any digital tool.
 NEVER suggest buying anything, downloading anything, or creating a new dedicated time block.
 
