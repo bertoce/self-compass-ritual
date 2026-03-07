@@ -76,7 +76,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
       {/* ── Arrival ──────────────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 20 }}>
-          Stage 3 · Your Practice
+          Stage 3 · Practice
         </p>
         <p style={{ fontSize: 24, fontWeight: 100, lineHeight: 1.5, letterSpacing: '-0.01em', color: '#1A1713' }}>
           Here you are.
@@ -86,7 +86,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
       {/* ── Your Nature ─────────────────────────── */}
       <div className="rise-2" style={{ marginBottom: 48 }}>
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
-          Your Nature
+          Your Root
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4', borderBottom: '1px solid #D8D0C4', padding: '28px 0' }}>
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.9, color: '#1A1713', letterSpacing: '0.01em' }}>

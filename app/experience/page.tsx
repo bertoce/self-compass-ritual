@@ -20,8 +20,8 @@ const STAGE_BACKGROUNDS: Record<CurrentStage, string> = {
 };
 
 const STAGE_LABELS: Record<CurrentStage, string> = {
-  1: 'Nature',
-  2: 'Days',
+  1: 'Root',
+  2: 'Now',
   3: 'Practice',
 };
 

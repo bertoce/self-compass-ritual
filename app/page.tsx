@@ -65,7 +65,7 @@ export default function Home() {
                 className="block text-center"
                 style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', transition: 'opacity 0.4s ease' }}
               >
-                Arrive
+                Come in
               </Link>
               <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', textAlign: 'center', marginTop: 14 }}>
                 Just you and a few honest questions.
@@ -170,7 +170,7 @@ export default function Home() {
                 className="block text-center"
                 style={{ padding: '18px 0', background: '#1A1713', color: '#F8F6F1', fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase' }}
               >
-                Arrive
+                Come in
               </Link>
             </div>
 

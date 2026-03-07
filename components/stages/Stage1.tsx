@@ -44,7 +44,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
       <div className="rise-1" style={{ marginBottom: 56 }}>
         {/* Stage kicker — weight 500 */}
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 20 }}>
-          Stage 1 · Your Nature
+          Stage 1 · Root
         </p>
         {/* Question — weight 200 */}
         <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713', marginBottom: 16 }}>

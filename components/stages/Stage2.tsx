@@ -47,7 +47,7 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
       {/* ── Opening ───────────────────────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#6B8C70', marginBottom: 20 }}>
-          Stage 2 · Your Days
+          Stage 2 · Now
         </p>
         {/* Question — weight 200 */}
         <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713', marginBottom: 16 }}>
