@@ -138,7 +138,7 @@ export default function Home() {
                 </div>
               </div>
               <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458' }}>
-                The closest things to this are therapy, deep friendship, going home. None of them scale. This is the portable, daily version.
+                The closest things to this are therapy, deep friendship, going home. This is what you do between.
               </p>
             </section>
 
