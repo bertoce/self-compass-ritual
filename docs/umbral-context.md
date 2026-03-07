@@ -1,4 +1,4 @@
-# Identity Compass — Product Context Document
+# Umbral — Product Context Document
 ## The Origin Insight
 This product was born from a personal observation: every time the founder returns to Mexico from the US, a specific weight lifts. The cause isn't simply vacation or rest — it's a return to a felt sense of self. The experience includes:
 - A support network oriented around people, not productivity

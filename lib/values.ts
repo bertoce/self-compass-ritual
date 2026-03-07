@@ -5,7 +5,7 @@ export const valueCards: DimensionCard[] = [
   {
     id: 'belonging',
     label: 'Belonging',
-    description: 'Being part of something — family, community, a place that knows you',
+    description: 'Family, community, a place that knows you',
     category: 'value',
     icon: '🏡',
   },

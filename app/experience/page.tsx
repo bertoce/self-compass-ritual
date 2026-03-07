@@ -108,7 +108,7 @@ export default function ExperiencePage() {
             className="text-stone transition-colors hover:text-stone-mid"
             style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300 }}
           >
-            Identity Compass
+            Umbral
           </Link>
 
           {/* Hairline stage progress */}
@@ -170,7 +170,7 @@ export default function ExperiencePage() {
               className="text-stone"
               style={{ fontSize: 13, fontWeight: 200, letterSpacing: '0.06em', lineHeight: 1.8 }}
             >
-              Sitting with what you shared.
+              Taking this in.
             </p>
             <p
               className="mt-3 text-stone-light"
@@ -188,7 +188,7 @@ export default function ExperiencePage() {
               className="text-stone mb-8"
               style={{ fontSize: 14, fontWeight: 200, lineHeight: 1.8 }}
             >
-              Something got lost along the way.
+              Something went wrong. Please try again.
             </p>
             <button
               onClick={() => stage2Data && handleStage2Complete(stage2Data)}

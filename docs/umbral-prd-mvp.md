@@ -1,4 +1,4 @@
-# Identity Compass — MVP Product Requirements Document
+# Umbral — MVP Product Requirements Document
 
 **Version:** 1.0
 **Status:** Draft
@@ -242,4 +242,4 @@ This PRD describes the **thin slice** MVP. The principle is: prove the core loop
 
 ---
 
-*This PRD serves the three core jobs defined in the Identity Compass context document: articulate the Home Self, make the gap visible, and offer one specific path forward. Every requirement should be evaluated against these three jobs. If a requirement doesn't serve at least one of them, it doesn't belong in this version.*
+*This PRD serves the three core jobs defined in the Umbral context document: articulate the Home Self, make the gap visible, and offer one specific path forward. Every requirement should be evaluated against these three jobs. If a requirement doesn't serve at least one of them, it doesn't belong in this version.*

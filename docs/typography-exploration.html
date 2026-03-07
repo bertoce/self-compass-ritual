@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umbral — Typography Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:       #F8F6F1;
+    --stone:       #1A1713;
+    --amber:       #B8844A;
+    --hairline:    #D8D0C4;
+    --stone-mid:   #6B6458;
+    --stone-light: #C4B9AB;
+  }
+
+  body {
+    background: #EFECE7;
+    font-family: 'DM Sans', sans-serif;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── Page header */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+  }
+  .page-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-mid);
+    margin-bottom: 12px;
+  }
+  .page-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    color: var(--stone);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Variation label */
+  .variation-header {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .variation-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: rgba(184,132,74,0.08);
+    padding: 4px 10px;
+    border: 1px solid rgba(184,132,74,0.2);
+  }
+  .variation-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--stone);
+  }
+  .variation-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--stone-mid);
+  }
+
+  /* ── Screen row */
+  .screen-row {
+    max-width: 1200px;
+    margin: 0 auto 72px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* ── Phone frame */
+  .phone {
+    background: var(--linen);
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(26,23,19,0.10), 0 1px 4px rgba(26,23,19,0.06);
+    position: relative;
+  }
+  .phone::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 6px;
+    background: var(--hairline);
+    border-radius: 3px;
+    margin: 14px auto 0;
+  }
+
+  .screen-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    padding: 12px 0 0;
+  }
+
+  .phone-inner {
+    padding: 20px 28px 32px;
+  }
+
+  /* ── Shared UI atoms */
+  .hairline { height: 1px; background: var(--hairline); }
+  .kicker {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+  .stage-kicker-sage {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6B8C70;
+    margin-bottom: 14px;
+  }
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    background: var(--stone);
+    color: var(--linen);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    margin-top: 24px;
+    text-decoration: none;
+  }
+  .meta {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .card {
+    border-bottom: 1px solid var(--hairline);
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-selected {
+    background: rgba(184,132,74,0.05);
+    margin: 0 -28px;
+    padding: 12px 28px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .card-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+  .section-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .section-label-text {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: var(--stone-mid);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .section-count {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .ritual-amber-line { height: 1px; background: rgba(184,132,74,0.3); }
+  .action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .glyph { font-size: 9px; color: var(--stone-light); }
+
+  /* ── VARIATION A — Geometric (DM Sans throughout) */
+  .va-headline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .va-subline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    margin-bottom: 10px;
+  }
+  .va-question {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 1.7;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .va-subq {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    font-style: italic;
+  }
+  .va-card-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.02em;
+  }
+  .va-card-label-sel {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+  .va-card-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--stone-mid);
+    margin-top: 2px;
+  }
+  .va-home-self {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 1.9;
+    color: var(--stone);
+    letter-spacing: 0.01em;
+  }
+  .va-ritual-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+  .va-ritual-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.95;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .va-closing {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ── VARIATION B — Literary (Playfair Display + DM Sans) */
+  .vb-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .vb-subline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    margin-bottom: 10px;
+  }
+  .vb-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .vb-subq {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone-mid);
+    font-style: italic;
+  }
+  .vb-card-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.02em;
+  }
+  .vb-card-label-sel {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+  .vb-card-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--stone-mid);
+    margin-top: 2px;
+  }
+  .vb-home-self {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--stone);
+    letter-spacing: 0.01em;
+  }
+  .vb-ritual-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+  .vb-ritual-body {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .vb-closing {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ── VARIATION C — Humanist (EB Garamond throughout) */
+  .vc-headline {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .vc-subline {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--stone-mid);
+    margin-bottom: 10px;
+  }
+  .vc-question {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .vc-subq {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--stone-mid);
+    font-style: italic;
+  }
+  .vc-card-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--stone);
+  }
+  .vc-card-label-sel {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--amber);
+  }
+  .vc-card-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--stone-mid);
+    font-style: italic;
+    margin-top: 1px;
+  }
+  .vc-home-self {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--stone);
+  }
+  .vc-ritual-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+  .vc-ritual-body {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .vc-closing {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #9B9085;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* stage bg colours */
+  .bg-stage1 { background: radial-gradient(ellipse at 60% 0%, #E8D8EB 0%, #F5F0F4 40%, #F7F4F0 100%); }
+  .bg-stage3 { background: radial-gradient(ellipse at 50% 55%, #E4C87C 0%, #F0E0B0 35%, #F5EDD8 100%); }
+  .bg-landing { background: linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%); }
+
+  /* divider */
+  .variation-divider {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+    height: 1px;
+    background: rgba(184,132,74,0.15);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-title">Umbral · Design</p>
+  <h1 class="page-subtitle">Typography Explorations</h1>
+  <p style="font-family:'DM Sans',sans-serif; font-size:13px; font-weight:300; color:#6B6458; margin-top:10px; line-height:1.7;">Three screens shown for each variation: Landing · Stage 1 · Stage 3</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     VARIATION A — GEOMETRIC
+════════════════════════════════════════════════════ -->
+
+<div class="variation-header">
+  <span class="variation-tag">A</span>
+  <span class="variation-name">Geometric</span>
+  <span class="variation-desc">DM Sans throughout · weights 200–300 · pure sans · crisp, architectural</span>
+</div>
+
+<div class="screen-row">
+
+  <!-- A · Landing -->
+  <div>
+    <p class="screen-label">Landing</p>
+    <div class="phone bg-landing">
+      <div class="phone-inner" style="padding-top:24px;">
+        <!-- header -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-mid);border-bottom:1px solid var(--hairline);padding-bottom:2px;">Begin</span>
+        </div>
+        <!-- hero -->
+        <p class="kicker">For those who cross worlds</p>
+        <h2 class="va-headline">Every time you cross back,<br>something lifts.</h2>
+        <p class="va-subline">That is you, returning to yourself.</p>
+        <p class="va-subline" style="margin-bottom:28px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <a class="cta-btn" style="font-family:'DM Sans',sans-serif;">Begin the experience</a>
+        <p class="meta">10–15 minutes · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- A · Stage 1 -->
+  <div>
+    <p class="screen-label">Stage 1 · Home Self</p>
+    <div class="phone bg-stage1">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 1 · Home Self</p>
+        <p class="va-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="va-subq" style="margin-bottom:24px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="section-label-row">
+          <span class="section-label-text">What mattered most</span>
+          <span class="section-count">2 / 3</span>
+        </div>
+        <div style="border-top:1px solid var(--hairline);">
+          <div class="card-selected">
+            <div><div class="va-card-label-sel">Belonging</div><div class="va-card-desc">Family, community, a place that knows you</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="va-card-label">Freedom</div><div class="va-card-desc">Choosing your own path, on your own terms</div></div>
+          </div>
+          <div class="card-selected">
+            <div><div class="va-card-label-sel">Deep Connection</div><div class="va-card-desc">Being truly known, not just liked</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="va-card-label">Stillness</div><div class="va-card-desc">Quiet. Slowness. A life without urgency</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A · Stage 3 -->
+  <div>
+    <p class="screen-label">Stage 3 · Ritual</p>
+    <div class="phone bg-stage3">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 3 · Your Ritual</p>
+        <p class="va-question" style="margin-bottom:24px;">Here is what you found.</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-mid);margin-bottom:8px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:16px 0;margin-bottom:20px;">
+          <p class="va-home-self">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:16px 0;margin-bottom:16px;">
+          <p class="va-ritual-title">The Belonging Check-In</p>
+          <p class="va-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+        <p class="va-closing">This compass is yours. The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="variation-divider"></div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     VARIATION B — LITERARY
+════════════════════════════════════════════════════ -->
+
+<div class="variation-header">
+  <span class="variation-tag">B</span>
+  <span class="variation-name">Literary</span>
+  <span class="variation-desc">Playfair Display for headings + ritual · DM Sans for labels and UI · editorial, intimate</span>
+</div>
+
+<div class="screen-row">
+
+  <!-- B · Landing -->
+  <div>
+    <p class="screen-label">Landing</p>
+    <div class="phone bg-landing">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-mid);border-bottom:1px solid var(--hairline);padding-bottom:2px;">Begin</span>
+        </div>
+        <p class="kicker">For those who cross worlds</p>
+        <h2 class="vb-headline">Every time you cross back,<br>something lifts.</h2>
+        <p class="vb-subline">That is you, returning to yourself.</p>
+        <p class="vb-subline" style="margin-bottom:28px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <a class="cta-btn" style="font-family:'DM Sans',sans-serif;">Begin the experience</a>
+        <p class="meta">10–15 minutes · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- B · Stage 1 -->
+  <div>
+    <p class="screen-label">Stage 1 · Home Self</p>
+    <div class="phone bg-stage1">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 1 · Home Self</p>
+        <p class="vb-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="vb-subq" style="margin-bottom:24px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="section-label-row">
+          <span class="section-label-text">What mattered most</span>
+          <span class="section-count">2 / 3</span>
+        </div>
+        <div style="border-top:1px solid var(--hairline);">
+          <div class="card-selected">
+            <div><div class="vb-card-label-sel">Belonging</div><div class="vb-card-desc">Family, community, a place that knows you</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="vb-card-label">Freedom</div><div class="vb-card-desc">Choosing your own path, on your own terms</div></div>
+          </div>
+          <div class="card-selected">
+            <div><div class="vb-card-label-sel">Deep Connection</div><div class="vb-card-desc">Being truly known, not just liked</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="vb-card-label">Stillness</div><div class="vb-card-desc">Quiet. Slowness. A life without urgency</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B · Stage 3 -->
+  <div>
+    <p class="screen-label">Stage 3 · Ritual</p>
+    <div class="phone bg-stage3">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 3 · Your Ritual</p>
+        <p class="vb-question" style="margin-bottom:24px;">Here is what you found.</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-mid);margin-bottom:8px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:16px 0;margin-bottom:20px;">
+          <p class="vb-home-self">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:16px 0;margin-bottom:16px;">
+          <p class="vb-ritual-title">The Belonging Check-In</p>
+          <p class="vb-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+        <p class="vb-closing">This compass is yours. The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="variation-divider"></div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     VARIATION C — HUMANIST
+════════════════════════════════════════════════════ -->
+
+<div class="variation-header">
+  <span class="variation-tag">C</span>
+  <span class="variation-name">Humanist</span>
+  <span class="variation-desc">EB Garamond throughout · warm old-style figures · reads like a letter, a book</span>
+</div>
+
+<div class="screen-row">
+
+  <!-- C · Landing -->
+  <div>
+    <p class="screen-label">Landing</p>
+    <div class="phone bg-landing">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-mid);border-bottom:1px solid var(--hairline);padding-bottom:2px;">Begin</span>
+        </div>
+        <p class="kicker">For those who cross worlds</p>
+        <h2 class="vc-headline">Every time you cross back,<br>something lifts.</h2>
+        <p class="vc-subline">That is you, returning to yourself.</p>
+        <p class="vc-subline" style="margin-bottom:28px;">Most people don't realize that feeling is accessible without the flight.</p>
+        <a class="cta-btn" style="font-family:'DM Sans',sans-serif;">Begin the experience</a>
+        <p class="meta">10–15 minutes · No account · No writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- C · Stage 1 -->
+  <div>
+    <p class="screen-label">Stage 1 · Home Self</p>
+    <div class="phone bg-stage1">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--hairline);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--hairline);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-light);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 1 · Home Self</p>
+        <p class="vc-question">Bring to mind a moment where you felt most like yourself.</p>
+        <p class="vc-subq" style="margin-bottom:24px;">Most calm. Most free. Most seen. Hold that moment. Answer from there.</p>
+        <div class="section-label-row">
+          <span class="section-label-text">What mattered most</span>
+          <span class="section-count">2 / 3</span>
+        </div>
+        <div style="border-top:1px solid var(--hairline);">
+          <div class="card-selected">
+            <div><div class="vc-card-label-sel">Belonging</div><div class="vc-card-desc">Family, community, a place that knows you</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="vc-card-label">Freedom</div><div class="vc-card-desc">Choosing your own path, on your own terms</div></div>
+          </div>
+          <div class="card-selected">
+            <div><div class="vc-card-label-sel">Deep Connection</div><div class="vc-card-desc">Being truly known, not just liked</div></div>
+            <div class="card-dot"></div>
+          </div>
+          <div class="card">
+            <div><div class="vc-card-label">Stillness</div><div class="vc-card-desc">Quiet. Slowness. A life without urgency</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C · Stage 3 -->
+  <div>
+    <p class="screen-label">Stage 3 · Ritual</p>
+    <div class="phone bg-stage3">
+      <div class="phone-inner" style="padding-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);">Umbral</span>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Home</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--amber);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);font-family:'DM Sans',sans-serif;font-weight:300;">Gap</span></div>
+            <div style="width:8px;height:1px;background:var(--amber);"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:3px;height:3px;border-radius:50%;background:var(--stone);"></div><span style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);font-family:'DM Sans',sans-serif;font-weight:300;">Ritual</span></div>
+          </div>
+        </div>
+        <p class="kicker">Stage 3 · Your Ritual</p>
+        <p class="vc-question" style="margin-bottom:24px;">Here is what you found.</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-mid);margin-bottom:8px;">Your Home Self</p>
+        <div style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:16px 0;margin-bottom:20px;">
+          <p class="vc-home-self">You come alive when people who know you are near. Connection steadies you. In those moments, you remember you are not meant to hold things alone.</p>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Your ritual</p>
+        <div style="border-top:1px solid rgba(184,132,74,0.3);border-bottom:1px solid rgba(184,132,74,0.3);padding:16px 0;margin-bottom:16px;">
+          <p class="vc-ritual-title">The Belonging Check-In</p>
+          <p class="vc-ritual-body">"Before you sleep, send one message to someone who knows you. Tell them one small true thing from your day. Then put your phone down."</p>
+        </div>
+        <p class="vc-closing">This compass is yours. The ritual grows through return, not perfection.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

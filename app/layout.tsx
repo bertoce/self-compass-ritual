@@ -8,10 +8,10 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Identity Compass",
-  description: "You were someone before the world told you who to be. This helps you remember — and live as — that person.",
+  title: "Umbral",
+  description: "You were someone before the world told you who to be. This helps you remember, and live as, that person.",
   openGraph: {
-    title: "Identity Compass",
+    title: "Umbral",
     description: "Find your way back to yourself.",
   },
 };

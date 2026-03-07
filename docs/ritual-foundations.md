@@ -1,7 +1,7 @@
-# Identity Compass — Ritual Foundations
+# Umbral — Ritual Foundations
 ## Source Texts & Principles for Stage 3 Ritual Generation
 
-**Purpose:** This document synthesizes the four source texts that ground the ritual generation engine. It is intended as context for AI systems generating rituals in Stage 3 of the Identity Compass experience. Every ritual produced should be traceable to at least one of these traditions — not as a citation, but as a living principle embedded in the design of the ritual itself.
+**Purpose:** This document synthesizes the four source texts that ground the ritual generation engine. It is intended as context for AI systems generating rituals in Stage 3 of the Umbral experience. Every ritual produced should be traceable to at least one of these traditions — not as a citation, but as a living principle embedded in the design of the ritual itself.
 
 ---
 
@@ -163,4 +163,4 @@ When generating a ritual in Stage 3, the system should:
 
 ---
 
-*This document should be read alongside the Identity Compass Product Context Document and the MVP PRD. The ritual traditions described here inform Stage 3 generation only. They do not define the product's brand, religious identity, or philosophical stance. The product is secular and universal; these traditions are its invisible architecture.*
+*This document should be read alongside the Umbral Product Context Document and the MVP PRD. The ritual traditions described here inform Stage 3 generation only. They do not define the product's brand, religious identity, or philosophical stance. The product is secular and universal; these traditions are its invisible architecture.*

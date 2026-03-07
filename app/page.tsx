@@ -30,7 +30,7 @@ export default function Home() {
               <polygon points="16,5 14.5,12 16,10.5 17.5,12" fill="#1A1713" />
             </svg>
             <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 300, color: '#1A1713' }}>
-              Identity Compass
+              Umbral
             </span>
           </div>
           <Link href="/experience" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 300, color: '#6B6458', borderBottom: '1px solid #D8D0C4', paddingBottom: 2 }}>
@@ -58,7 +58,7 @@ export default function Home() {
 
             {/* Subline */}
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 20 }}>
-              That isn't the destination. That's you — returning to yourself.
+              That isn't the destination. That is you, returning to yourself.
             </p>
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 52 }}>
               Most people don't realize that feeling is accessible without the flight.
@@ -90,7 +90,7 @@ export default function Home() {
               Most people are living as two versions of themselves simultaneously.
             </p>
             <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', marginBottom: 16 }}>
-              One who knows what matters — rooted in memory, in relationship, in the specific feeling of being seen. One who has quietly become whoever the environment expects.
+              One who knows what matters. Rooted in memory, in relationship, in the feeling of being seen. One who has quietly become whoever the environment expects.
             </p>
             <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458', fontStyle: 'italic' }}>
               The gap between them is real. And almost never named.
@@ -109,7 +109,7 @@ export default function Home() {
             <div style={{ borderTop: '1px solid #D8D0C4', marginBottom: 32 }}>
               {[
                 ['Not a meditation app', 'Not a personality quiz', 'Not a habit tracker'],
-                ['A single conversation', 'that excavates who you already are'],
+                ['A single conversation', 'that finds who you already are'],
               ].map((group, gi) => (
                 <div key={gi}>
                   {group.map(item => (
@@ -125,7 +125,7 @@ export default function Home() {
             </div>
 
             <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.85, color: '#6B6458' }}>
-              The closest analogues — therapy, deep friendship, going home — don't scale. This is the portable, daily version of that experience.
+              The closest things to this are therapy, deep friendship, going home. None of them scale. This is the portable, daily version.
             </p>
           </section>
 

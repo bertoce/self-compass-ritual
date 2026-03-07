@@ -1,4 +1,4 @@
-# Identity Compass
+# Umbral
 
 A web app that helps diaspora and people experiencing identity drift reconnect with their Home Self.
 

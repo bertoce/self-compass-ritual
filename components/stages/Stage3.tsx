@@ -9,17 +9,17 @@ interface Stage3Props {
 
 export default function Stage3({ data, onRestart }: Stage3Props) {
   const handleSave = async () => {
-    const text = `IDENTITY COMPASS\n\n── Your Home Self ──\n${data.homeSelfSummary}\n\n── ${data.ritualTitle} ──\n${data.ritual}\n\n─────────────────\nidentitycompass.app`;
+    const text = `UMBRAL\n\n── Your Home Self ──\n${data.homeSelfSummary}\n\n── ${data.ritualTitle} ──\n${data.ritual}\n\n─────────────────\nidentitycompass.app`;
     const blob = new Blob([text], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url; a.download = 'identity-compass.txt'; a.click();
+    a.href = url; a.download = 'umbral.txt'; a.click();
     URL.revokeObjectURL(url);
   };
 
   const handleShare = async () => {
-    const text = `"${data.ritual}"\n\n— Identity Compass`;
-    if (navigator.share) await navigator.share({ title: 'My Identity Compass', text });
+    const text = `"${data.ritual}"\n\nUmbral`;
+    if (navigator.share) await navigator.share({ title: 'My Umbral', text });
     else { await navigator.clipboard.writeText(text); }
   };
 
@@ -29,7 +29,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
       {/* ── Hierarchy level 1 — arrival ─────────── */}
       <div className="rise-1" style={{ marginBottom: 56 }}>
         <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 300, color: '#B8844A', marginBottom: 20 }}>
-          Stage 3 — Your Ritual
+          Stage 3 · Your Ritual
         </p>
         <p style={{ fontSize: 18, fontWeight: 200, lineHeight: 1.7, color: '#1A1713' }}>
           Here is what you found.
@@ -93,7 +93,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
       {/* ── Closing ─────────────────────────────── */}
       <div className="rise-5" style={{ textAlign: 'center' }}>
         <p style={{ fontSize: 12, fontWeight: 300, lineHeight: 1.8, color: '#9B9085', fontStyle: 'italic', marginBottom: 28 }}>
-          This compass is yours. The ritual gains power through return — not perfection.
+          This compass is yours. The ritual grows through return, not perfection.
         </p>
         <button onClick={onRestart}
           style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C4B9AB', background: 'none', cursor: 'pointer', borderBottom: '1px solid #D8D0C4', paddingBottom: 2, transition: 'color 0.3s ease' }}
