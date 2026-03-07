@@ -44,20 +44,19 @@ export default function Home() {
           {/* ── HERO ─────────────────────────────── */}
           <section style={{ paddingTop: 80, paddingBottom: 80 }}>
 
-            <p className="rise-1" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#B8844A', marginBottom: 28 }}>
-              For those who cross worlds
-            </p>
-
-            <h1 className="rise-2" style={{ fontSize: 30, fontWeight: 100, lineHeight: 1.4, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 24 }}>
-              Every time you cross back,<br />
-              something lifts.
+            <h1 className="rise-1" style={{ fontSize: 28, fontWeight: 100, lineHeight: 1.45, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 10 }}>
+              There are places where you don't have to explain yourself.
             </h1>
 
-            <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 20 }}>
-              That is you, returning to yourself.
+            <p className="rise-2" style={{ fontSize: 22, fontWeight: 100, lineHeight: 1.4, letterSpacing: '-0.01em', color: '#1A1713', marginBottom: 36 }}>
+              Where you just are.
+            </p>
+
+            <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 14 }}>
+              You know what it feels like to arrive there.
             </p>
             <p className="rise-3" style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', marginBottom: 52 }}>
-              You already know who you are. This helps you live closer to that knowing.
+              This is a practice for arriving there more often.
             </p>
 
             <div className="rise-4">
