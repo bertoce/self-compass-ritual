@@ -7,7 +7,7 @@ const Hairline = () => (
 export default function Home() {
   return (
     <div style={{
-      background: 'linear-gradient(170deg, #EDE0EB 0%, #F5F0EC 28%, #EEE4D4 62%, #E8D8B8 100%)',
+      background: 'linear-gradient(170deg, #D0A0CC 0%, #EAC8A0 28%, #E8C060 62%, #D8A030 100%)',
       minHeight: '100vh',
     }}>
 
@@ -16,7 +16,7 @@ export default function Home() {
         position: 'sticky', top: 0, zIndex: 10,
         padding: '16px 32px 16px 48px',
         backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-        background: 'rgba(245, 240, 236, 0.80)',
+        background: 'rgba(248, 240, 232, 0.85)',
         borderBottom: '1px solid #D8D0C4',
       }}>
         <div style={{ maxWidth: 380, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

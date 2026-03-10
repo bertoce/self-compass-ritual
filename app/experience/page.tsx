@@ -10,13 +10,13 @@ import Stage3 from '@/components/stages/Stage3';
 type CurrentStage = 1 | 2 | 3;
 
 // Turrell Ganzfeld — each stage is a distinct color atmosphere
-// Stage 1: soft mauve-rose (introspective, inward, searching)
-// Stage 2: muted sage-grey (contemplative, honest, clear-eyed)
-// Stage 3: warm amber gold (resolution, warmth, arrival)
+// Stage 1: rich plum-rose (introspective, inward, memory)
+// Stage 2: warm olive-gold (honest, present, clear-eyed)
+// Stage 3: deep amber gold (resolution, warmth, arrival)
 const STAGE_BACKGROUNDS: Record<CurrentStage, string> = {
-  1: 'radial-gradient(ellipse at 60% 0%,   #E8D8EB 0%, #F5F0F4 40%, #F7F4F0 100%)',
-  2: 'radial-gradient(ellipse at 40% 30%,  #D8E0D8 0%, #EEF0E8 45%, #F4F2EC 100%)',
-  3: 'radial-gradient(ellipse at 50% 55%,  #E4C87C 0%, #F0E0B0 35%, #F5EDD8 100%)',
+  1: 'radial-gradient(ellipse at 60% 0%,   #C09ACC 0%, #DBBCD8 40%, #EDD8E8 100%)',
+  2: 'radial-gradient(ellipse at 40% 30%,  #A8C070 0%, #C4D08C 45%, #DDD8B4 100%)',
+  3: 'radial-gradient(ellipse at 50% 55%,  #D4A030 0%, #E8C058 35%, #F4D888 100%)',
 };
 
 const STAGE_LABELS: Record<CurrentStage, string> = {
