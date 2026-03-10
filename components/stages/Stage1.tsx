@@ -101,7 +101,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
       {/* ── Optional word ───────────────────────── */}
       <div className="rise-5" style={{ marginBottom: 56 }}>
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 14 }}>
-          A word for that version of you &nbsp;<span style={{ color: '#C4B9AB', fontWeight: 400 }}>(optional)</span>
+          A word for that version of you &nbsp;<span style={{ color: '#6B6458', fontWeight: 400 }}>(optional)</span>
         </p>
         <input
           type="text"
@@ -120,7 +120,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
             letterSpacing: '0.04em',
             color: '#1A1713',
           }}
-          className="placeholder-stone-light focus:border-stone transition-colors duration-300"
+          className="placeholder-readable focus:border-stone transition-colors duration-300"
         />
       </div>
 

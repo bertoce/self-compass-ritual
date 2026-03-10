@@ -53,6 +53,13 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #D8D0C4; border-radius: 0; }
 
+/* ── Placeholder ─────────────────────────────── */
+/* Stone-light (#C4B9AB) is too faint on gradient backgrounds */
+.placeholder-readable::placeholder {
+  color: #6B6458;
+  opacity: 1;
+}
+
 /* ── Slider ──────────────────────────────────── */
 input[type="range"] {
   -webkit-appearance: none;
