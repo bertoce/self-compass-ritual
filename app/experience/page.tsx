@@ -175,8 +175,8 @@ export default function ExperiencePage() {
               Taking this in.
             </p>
             <p
-              className="mt-3 text-stone-light"
-              style={{ fontSize: 10, fontWeight: 300, letterSpacing: '0.15em', textTransform: 'uppercase' }}
+              className="mt-3"
+              style={{ fontSize: 10, fontWeight: 300, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#3D3936' }}
             >
               Finding your compass
             </p>

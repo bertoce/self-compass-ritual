@@ -25,15 +25,15 @@ export default function CompassChart({ dimensions }: CompassChartProps) {
       <ResponsiveContainer width="100%" height={260}>
         <RadarChart data={data} margin={{ top: 16, right: 24, bottom: 16, left: 24 }}>
           <PolarGrid
-            stroke="#D8D0C4"
+            stroke="#9B9085"
             strokeWidth={0.5}
           />
           <PolarAngleAxis
             dataKey="dimension"
             tick={{
-              fill: '#6B6458',
+              fill: '#3D3936',
               fontSize: 10,
-              fontFamily: 'var(--font-geist-sans)',
+              fontFamily: '-apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif',
               fontWeight: 300,
               letterSpacing: '0.06em',
             }}
@@ -41,7 +41,7 @@ export default function CompassChart({ dimensions }: CompassChartProps) {
           <Radar
             name="Home Self"
             dataKey="Home Self"
-            stroke="#D8D0C4"
+            stroke="#7A7068"
             fill="transparent"
             strokeWidth={0.75}
             strokeDasharray="3 3"
@@ -51,8 +51,8 @@ export default function CompassChart({ dimensions }: CompassChartProps) {
             dataKey="Current Self"
             stroke="#B8844A"
             fill="#B8844A"
-            fillOpacity={0.08}
-            strokeWidth={1}
+            fillOpacity={0.12}
+            strokeWidth={1.5}
           />
         </RadarChart>
       </ResponsiveContainer>
@@ -60,12 +60,12 @@ export default function CompassChart({ dimensions }: CompassChartProps) {
       {/* Legend — hairline precise */}
       <div className="flex items-center justify-center gap-8 mt-2">
         <div className="flex items-center gap-2.5">
-          <div className="w-5 border-t border-dashed" style={{ borderColor: '#D8D0C4' }} />
-          <span className="text-xs text-stone-light tracking-widest uppercase" style={{ fontSize: 9, letterSpacing: '0.1em' }}>Home</span>
+          <div className="w-5 border-t border-dashed" style={{ borderColor: '#7A7068' }} />
+          <span style={{ fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3936', fontWeight: 400 }}>Home</span>
         </div>
         <div className="flex items-center gap-2.5">
           <div className="w-5 border-t" style={{ borderColor: '#B8844A' }} />
-          <span className="text-xs text-stone-light tracking-widest uppercase" style={{ fontSize: 9, letterSpacing: '0.1em' }}>Now</span>
+          <span style={{ fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3936', fontWeight: 400 }}>Now</span>
         </div>
       </div>
     </div>

@@ -141,9 +141,9 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
           This is yours. It grows through return, not perfection.
         </p>
         <button onClick={onRestart}
-          style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 400, color: '#C4B9AB', background: 'none', cursor: 'pointer', borderBottom: '1px solid #D8D0C4', paddingBottom: 2, transition: 'color 0.3s ease' }}
+          style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 400, color: '#3D3936', background: 'none', cursor: 'pointer', borderBottom: '1px solid #D8D0C4', paddingBottom: 2, transition: 'color 0.3s ease' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#1A1713')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#C4B9AB')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#3D3936')}
         >
           Begin again
         </button>
