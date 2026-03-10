@@ -97,7 +97,7 @@ export default function Home() {
 
             {/* ── WHAT THIS IS ─────────────────── */}
             <section style={{ paddingTop: 56, paddingBottom: 56 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 24 }}>
                 What this is
               </p>
               <p style={{ fontSize: 16, fontWeight: 200, lineHeight: 1.75, color: '#1A1713', marginBottom: 20 }}>
@@ -115,7 +115,7 @@ export default function Home() {
 
             {/* ── NOT / BUT ────────────────────── */}
             <section style={{ paddingTop: 56, paddingBottom: 56 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 24 }}>
                 What it is not
               </p>
               <div style={{ borderTop: '1px solid #D8D0C4', marginBottom: 32 }}>
@@ -146,7 +146,7 @@ export default function Home() {
 
             {/* ── YOU LEAVE WITH ───────────────── */}
             <section style={{ paddingTop: 56, paddingBottom: 56 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#C4B9AB', marginBottom: 24 }}>
+              <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 24 }}>
                 You leave with
               </p>
               <div style={{ borderTop: '1px solid #D8D0C4' }}>

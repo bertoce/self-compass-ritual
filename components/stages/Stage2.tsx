@@ -105,7 +105,7 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
             </p>
             {avgPresence < 65 && (
               <p style={{ fontSize: 9, fontWeight: 500, color: '#B8844A', letterSpacing: '0.06em' }}>
-                {100 - avgPresence}% wants more room
+                {100 - avgPresence}% still arriving
               </p>
             )}
           </div>
