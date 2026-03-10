@@ -100,7 +100,7 @@ export default function Stage3({ data, onRestart }: Stage3Props) {
         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#5A3010', marginBottom: 12 }}>
           Your practice
         </p>
-        <div style={{ borderTop: '1px solid rgba(184,132,74,0.3)', borderBottom: '1px solid rgba(184,132,74,0.3)', padding: '28px 0' }}>
+        <div style={{ borderTop: '1px solid rgba(184,120,96,0.35)', borderBottom: '1px solid rgba(184,120,96,0.35)', padding: '28px 0' }}>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#5A3010', marginBottom: 16 }}>
             {data.ritualTitle}
           </p>
