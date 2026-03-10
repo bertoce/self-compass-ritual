@@ -15,7 +15,7 @@ const MAX_RELATIONAL = 2;
 
 const SectionLabel = ({ text, count, max }: { text: string; count: number; max: number }) => (
   <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
-    <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458' }}>
+    <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936' }}>
       {text}
     </span>
     <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.1em', color: count > 0 ? '#B8844A' : '#C4B9AB' }}>
@@ -51,7 +51,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
           Call to mind a moment you felt completely yourself.
         </p>
         {/* Guidance — weight 300 */}
-        <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#6B6458', fontStyle: 'italic' }}>
+        <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#3D3936', fontStyle: 'italic' }}>
           At ease. Unguarded. Alive. Stay in that moment as you choose.
         </p>
       </div>
@@ -100,7 +100,7 @@ export default function Stage1({ onComplete }: Stage1Props) {
 
       {/* ── Optional word ───────────────────────── */}
       <div className="rise-5" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 14 }}>
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 14 }}>
           A word for that version of you &nbsp;<span style={{ color: '#C4B9AB', fontWeight: 400 }}>(optional)</span>
         </p>
         <input

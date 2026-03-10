@@ -54,14 +54,14 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
           Now look at your daily life.
         </p>
         {/* Body — weight 300 */}
-        <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#6B6458' }}>
+        <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.8, color: '#3D3936' }}>
           How much of what you just named is actually present in your days?
         </p>
       </div>
 
       {/* ── Sliders ─────────────────────────────── */}
       <div className="rise-2" style={{ marginBottom: 56 }}>
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458', marginBottom: 12 }}>
+        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936', marginBottom: 12 }}>
           In your life right now
         </p>
         <div style={{ borderTop: '1px solid #D8D0C4' }}>
@@ -87,8 +87,8 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
                 />
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
-                  <span style={{ fontSize: 9, fontWeight: 400, color: '#C4B9AB', letterSpacing: '0.08em' }}>Not at all</span>
-                  <span style={{ fontSize: 9, fontWeight: 400, color: '#C4B9AB', letterSpacing: '0.08em' }}>Fully present</span>
+                  <span style={{ fontSize: 9, fontWeight: 400, color: '#6B6458', letterSpacing: '0.08em' }}>Not at all</span>
+                  <span style={{ fontSize: 9, fontWeight: 400, color: '#6B6458', letterSpacing: '0.08em' }}>Fully present</span>
                 </div>
               </div>
             );
@@ -100,7 +100,7 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
       {showChart && (
         <div className="rise-3" style={{ marginBottom: 56 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#6B6458' }}>
+            <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, color: '#3D3936' }}>
               Your compass
             </p>
             {avgPresence < 65 && (
@@ -112,7 +112,7 @@ export default function Stage2({ stage1, onComplete }: Stage2Props) {
           <div style={{ borderTop: '1px solid #D8D0C4', borderBottom: '1px solid #D8D0C4', padding: '32px 0' }}>
             <CompassChart dimensions={chartDimensions} />
           </div>
-          <p style={{ fontSize: 11, fontWeight: 300, lineHeight: 1.75, color: '#6B6458', fontStyle: 'italic', marginTop: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 300, lineHeight: 1.75, color: '#3D3936', fontStyle: 'italic', marginTop: 16 }}>
             The outer ring is who you are. The inner shape is where you are living.
           </p>
         </div>
